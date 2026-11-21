@@ -1,0 +1,144 @@
+{
+  "lang": "tr",
+  "fallback": "en",
+  "ui": {
+    "page_title": "quota-dash",
+    "lede": "Karttaki düğmelerle giriş yap veya anahtar yapıştır. Uzun kurulum yok.",
+    "refresh": "Yenile",
+    "cancel": "Vazgeç",
+    "confirm": "Onayla",
+    "save": "Kaydet",
+    "get_key": "Key al",
+    "api_key_placeholder": "API key",
+    "saved_toast": "{name} kaydedildi",
+    "connect_google": "Google ile bağlan",
+    "open_google": "Google’ı aç",
+    "open_google_title": "Tarayıcı açılmadıysa veya kapattıysan",
+    "google_code_placeholder": "Google kodu veya callback URL",
+    "continue": "Devam",
+    "paste_google_code_first": "Önce Google kodunu yapıştır.",
+    "submitting_code": "Kod gönderiliyor…",
+    "google_approve_toast": "Google’da onayla — kodu buraya yapıştır",
+    "antigravity_connected": "Antigravity bağlandı",
+    "sign_in_failed_retry": "Giriş başarısız — yeni kod dene",
+    "status_ok": "OK",
+    "status_needs_login": "Giriş gerekli",
+    "status_stale": "Güncel değil",
+    "status_error": "Error",
+    "status_off": "kapalı",
+    "dashboard": "Dashboard",
+    "track": "Takibe al",
+    "track_cursor_title": "Bu PC’deki Cursor oturumundan kota oku — tarayıcıda giriş gerekmez",
+    "refresh_cursor_title": "Cursor uygulamasında giriş yaptıktan sonra kotayı tekrar oku",
+    "copy_command": "Komutu kopyala",
+    "copied": "Kopyalandı",
+    "done_refresh": "Tamam, Yenile",
+    "docs": "Docs",
+    "untrack": "Takibi bırak",
+    "untrack_account_title": "Bu hesabı kota listesinden çıkar",
+    "untrack_ok": "Bırak",
+    "untracked_toast": "Takip bırakıldı",
+    "add_account_tab": "+ hesap",
+    "add_account_title": "Yeni Google hesabı ekle",
+    "add_account_hint": "Yalnızca kota listesine yeni hesap ekler. agy’nin aktif oturumunu değiştirmez.",
+    "untrack_provider_title": "Kota listesinden çıkar (hesaba / oturuma dokunulmaz)",
+    "account_fallback": "hesap",
+    "loading": "yükleniyor…",
+    "updated_at": "güncellendi {time}",
+    "empty_hint": "Add Provider veya Giriş / Kaydet ile başla",
+    "provider_added": "{kind} eklendi",
+    "provider_untracked": "{name} takibi kapandı",
+    "reset_at": "sıfırlanır",
+    "request_failed": "istek başarısız",
+    "settings": "Ayarlar",
+    "settings_title": "Ayarlar",
+    "settings_language": "Dil",
+    "settings_refresh_interval": "Yenileme aralığı (sn)",
+    "settings_provider_timeout": "Sağlayıcı zaman aşımı (sn)",
+    "settings_cache_ttl": "Önbellek süresi (sn)",
+    "settings_server": "Sunucu (salt okunur)",
+    "settings_bind_hint": "Adres ve port değişikliği için süreci yeniden başlatın.",
+    "settings_save": "Kaydet",
+    "settings_close": "Kapat",
+    "settings_saved": "Ayarlar kaydedildi",
+    "theme_to_dark": "Koyu",
+    "theme_to_light": "Açık",
+    "theme_to_dark_title": "Koyu temaya geç",
+    "theme_to_light_title": "Açık temaya geç",
+    "t3_read": "okundu {time}",
+    "pct_left": "{n}% kaldı",
+    "antigravity_stale": "Son okuma {time}. Bu güncel kota değil. Bu hesapla sonraki Antigravity turu yeniler.",
+    "antigravity_stale_reset": "Son okuma {time} geçersiz: sıfırlama saati geçti. Bu hesapla sonraki Antigravity turu yeniden okur."
+  },
+  "providers": {
+    "cursor": {
+      "summary": "Bu PC’deki Cursor uygulaması oturumu (tarayıcı girişi yok).",
+      "steps": [
+        "Cursor masaüstü uygulamasında giriş yapmış ol.",
+        "Takibe al — kota bu makinedeki oturumdan okunur."
+      ]
+    },
+    "antigravity": {
+      "summary": "Google Antigravity (agy).",
+      "steps": [
+        "Google ile bağlan — tarayıcıda onayla.",
+        "Kodu buraya yapıştır → Devam."
+      ]
+    },
+    "claude-code": {
+      "summary": "Claude Code CLI OAuth.",
+      "steps": [
+        "Terminalde `claude` → `/login`.",
+        "Yenile."
+      ]
+    },
+    "codex": {
+      "summary": "ChatGPT / Codex CLI.",
+      "steps": [
+        "`codex login` çalıştır.",
+        "Yenile."
+      ]
+    },
+    "opencode": {
+      "summary": "OpenCode Go API anahtarı.",
+      "steps": [
+        "OpenCode’dan key al (veya /connect).",
+        "Yapıştır → Kaydet."
+      ]
+    },
+    "openrouter": {
+      "summary": "OpenRouter API anahtarı.",
+      "steps": [
+        "Keys sayfasından key oluştur.",
+        "Yapıştır → Kaydet."
+      ]
+    },
+    "t3": {
+      "summary": "Bu PC’de T3 Code’a giriş yapmış hesaplar.",
+      "steps": [
+        "T3 Code açık kalsın; kotayı o yeniler.",
+        "Takibe al — kart T3’nin yerel önbelleğini okur."
+      ]
+    }
+  },
+  "errors": {
+    "antigravity.no_active_session": "Önce Giriş’e bas (aktif oturum yok).",
+    "antigravity.no_saved_token": "Kayıtlı token yok; tekrar giriş yap.",
+    "antigravity.agy_missing": "Antigravity CLI (agy) bulunamadı. https://antigravity.google adresinden kurun.",
+    "antigravity.sign_in_cancelled": "Giriş iptal edildi.",
+    "antigravity.spawn_failed": "agy başlatılamadı: {detail}",
+    "antigravity.no_stdout": "agy stdout yok",
+    "antigravity.no_stderr": "agy stderr yok",
+    "antigravity.no_stdin": "agy stdin yok",
+    "antigravity.closed_without_url": "agy Google linkini vermeden kapandı.",
+    "antigravity.url_timeout": "agy Google giriş linkini vermedi (zaman aşımı).",
+    "antigravity.code_empty": "Kod boş.",
+    "antigravity.session_closed": "Giriş oturumu kapalı. Tekrar «Giriş yap» de.",
+    "antigravity.code_write_failed": "koda yazılamadı: {detail}",
+    "antigravity.flush_failed": "flush: {detail}",
+    "antigravity.wait_error": "agy beklenirken hata: {detail}",
+    "antigravity.code_timeout": "agy kodu işlerken zaman aşımı. Yeni kod alıp tekrar dene.",
+    "antigravity.exit_failed": "agy giriş başarısız (exit {code}). Yeni «Giriş yap» ile taze kod al.",
+    "antigravity.no_wincred": "agy bitti ama WinCred oturumu yok. Yenile’ye bas veya tekrar giriş yap."
+  }
+}

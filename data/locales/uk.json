@@ -1,0 +1,144 @@
+{
+  "lang": "uk",
+  "fallback": "en",
+  "ui": {
+    "page_title": "quota-dash",
+    "lede": "Увійдіть або вставте ключ з кожної картки. Довге налаштування не потрібне.",
+    "refresh": "Оновити",
+    "cancel": "Скасувати",
+    "confirm": "Підтвердити",
+    "save": "Зберегти",
+    "get_key": "Отримати ключ",
+    "api_key_placeholder": "Ключ API",
+    "saved_toast": "{name} збережено",
+    "connect_google": "Під’єднати Google",
+    "open_google": "Відкрити Google",
+    "open_google_title": "Якщо браузер не відкрився або ви його закрили",
+    "google_code_placeholder": "Код Google або URL зворотного виклику",
+    "continue": "Далі",
+    "paste_google_code_first": "Спершу вставте код Google.",
+    "submitting_code": "Надсилання коду…",
+    "google_approve_toast": "Підтвердьте в Google — вставте код сюди",
+    "antigravity_connected": "Antigravity під’єднано",
+    "sign_in_failed_retry": "Вхід не вдався — спробуйте новий код",
+    "status_ok": "OK",
+    "status_needs_login": "Потрібен вхід",
+    "status_stale": "Не актуально",
+    "status_error": "Помилка",
+    "status_off": "вимк.",
+    "dashboard": "Панель",
+    "track": "Відстежувати",
+    "track_cursor_title": "Читає квоту із сесії Cursor на цьому комп’ютері — без входу в браузері",
+    "refresh_cursor_title": "Після входу в Cursor завантажте квоту знову",
+    "copy_command": "Копіювати команду",
+    "copied": "Скопійовано",
+    "done_refresh": "Готово, оновити",
+    "docs": "Docs",
+    "untrack": "Не відстежувати",
+    "untrack_account_title": "Прибрати цей обліковий запис зі списку квот",
+    "untrack_ok": "Прибрати",
+    "untracked_toast": "Відстеження зупинено",
+    "add_account_tab": "+ обліковий запис",
+    "add_account_title": "Додати ще один обліковий запис Google",
+    "add_account_hint": "Лише додає обліковий запис до списку квот. Не змінює активну сесію agy.",
+    "untrack_provider_title": "Прибрати зі списку квот (без виходу з облікового запису)",
+    "account_fallback": "обліковий запис",
+    "loading": "завантаження…",
+    "updated_at": "оновлено {time}",
+    "empty_hint": "Натисніть «Відстежувати» або «Увійти / Зберегти», щоб почати",
+    "provider_added": "{kind} додано",
+    "provider_untracked": "Відстеження {name} зупинено",
+    "reset_at": "скидання",
+    "request_failed": "запит не вдався",
+    "settings": "Налаштування",
+    "settings_title": "Налаштування",
+    "settings_language": "Мова",
+    "settings_refresh_interval": "Інтервал оновлення (с)",
+    "settings_provider_timeout": "Час очікування постачальника (с)",
+    "settings_cache_ttl": "Тривалість кешу (с)",
+    "settings_server": "Сервер (лише читання)",
+    "settings_bind_hint": "Перезапустіть процес, щоб змінити адресу або порт.",
+    "settings_save": "Зберегти",
+    "settings_close": "Закрити",
+    "settings_saved": "Налаштування збережено",
+    "theme_to_dark": "Темна",
+    "theme_to_light": "Світла",
+    "theme_to_dark_title": "Увімкнути темну тему",
+    "theme_to_light_title": "Увімкнути світлу тему",
+    "t3_read": "прочитано {time}",
+    "pct_left": "{n}% залишилось",
+    "antigravity_stale": "Останнє зчитування {time}. Це не поточна квота. Її оновить наступний хід Antigravity на цьому обліковому записі.",
+    "antigravity_stale_reset": "Останнє зчитування {time} недійсне: час скидання минув. Наступний хід Antigravity на цьому обліковому записі прочитає її знову."
+  },
+  "providers": {
+    "cursor": {
+      "summary": "Сесія Cursor на цьому комп’ютері (без входу в браузері).",
+      "steps": [
+        "Увійдіть у програму Cursor.",
+        "Відстежувати — квота читається із сесії цього комп’ютера."
+      ]
+    },
+    "antigravity": {
+      "summary": "Google Antigravity (agy).",
+      "steps": [
+        "Під’єднати Google — підтвердьте в браузері.",
+        "Вставте код сюди → Далі."
+      ]
+    },
+    "claude-code": {
+      "summary": "OAuth CLI Claude Code.",
+      "steps": [
+        "У терміналі виконайте `claude` → `/login`.",
+        "Оновити."
+      ]
+    },
+    "codex": {
+      "summary": "CLI ChatGPT / Codex.",
+      "steps": [
+        "Виконайте `codex login`.",
+        "Оновити."
+      ]
+    },
+    "opencode": {
+      "summary": "Ключ API OpenCode Go.",
+      "steps": [
+        "Отримайте ключ в OpenCode (або /connect).",
+        "Вставити → Зберегти."
+      ]
+    },
+    "openrouter": {
+      "summary": "Ключ API OpenRouter.",
+      "steps": [
+        "Створіть ключ на сторінці Keys.",
+        "Вставити → Зберегти."
+      ]
+    },
+    "t3": {
+      "summary": "Облікові записи, які вже ввійшли в T3 Code на цьому ПК.",
+      "steps": [
+        "Лишіть T3 Code відкритим — квоту оновлює він.",
+        "Відстежувати — картка читає локальний кеш T3."
+      ]
+    }
+  },
+  "errors": {
+    "antigravity.no_active_session": "Спершу почніть вхід (немає активної сесії).",
+    "antigravity.no_saved_token": "Немає збереженого токена; увійдіть знову.",
+    "antigravity.agy_missing": "CLI Antigravity (agy) не знайдено. Встановіть із https://antigravity.google.",
+    "antigravity.sign_in_cancelled": "Вхід скасовано.",
+    "antigravity.spawn_failed": "не вдалося запустити agy: {detail}",
+    "antigravity.no_stdout": "у agy немає stdout",
+    "antigravity.no_stderr": "у agy немає stderr",
+    "antigravity.no_stdin": "у agy немає stdin",
+    "antigravity.closed_without_url": "agy завершився без посилання Google.",
+    "antigravity.url_timeout": "agy не повернув посилання входу Google (час вичерпано).",
+    "antigravity.code_empty": "Код порожній.",
+    "antigravity.session_closed": "Сесію входу закрито. Почніть вхід знову.",
+    "antigravity.code_write_failed": "не вдалося записати код: {detail}",
+    "antigravity.flush_failed": "flush: {detail}",
+    "antigravity.wait_error": "помилка під час очікування agy: {detail}",
+    "antigravity.code_timeout": "час вичерпано, поки agy обробляв код. Отримайте новий код і спробуйте знову.",
+    "antigravity.exit_failed": "вхід agy не вдався (код виходу {code}). Почніть вхід знову, щоб отримати новий код.",
+    "antigravity.no_wincred": "agy завершився, але сесії WinCred немає. Оновіть або увійдіть знову."
+  }
+}

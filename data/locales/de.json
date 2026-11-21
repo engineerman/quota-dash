@@ -1,0 +1,144 @@
+{
+  "lang": "de",
+  "fallback": "en",
+  "ui": {
+    "page_title": "quota-dash",
+    "lede": "Melden Sie sich an oder fügen Sie einen Schlüssel aus jeder Karte ein. Keine lange Einrichtung.",
+    "refresh": "Aktualisieren",
+    "cancel": "Abbrechen",
+    "confirm": "Bestätigen",
+    "save": "Speichern",
+    "get_key": "Schlüssel holen",
+    "api_key_placeholder": "API-Schlüssel",
+    "saved_toast": "{name} gespeichert",
+    "connect_google": "Mit Google verbinden",
+    "open_google": "Google öffnen",
+    "open_google_title": "Falls der Browser nicht geöffnet wurde oder Sie ihn geschlossen haben",
+    "google_code_placeholder": "Google-Code oder Callback-URL",
+    "continue": "Weiter",
+    "paste_google_code_first": "Zuerst den Google-Code einfügen.",
+    "submitting_code": "Code wird gesendet…",
+    "google_approve_toast": "In Google bestätigen — Code hier einfügen",
+    "antigravity_connected": "Antigravity verbunden",
+    "sign_in_failed_retry": "Anmeldung fehlgeschlagen — neuen Code versuchen",
+    "status_ok": "OK",
+    "status_needs_login": "Anmeldung nötig",
+    "status_stale": "Nicht aktuell",
+    "status_error": "Fehler",
+    "status_off": "aus",
+    "dashboard": "Dashboard",
+    "track": "Verfolgen",
+    "track_cursor_title": "Kontingent aus der Cursor-Sitzung auf diesem PC lesen — keine Anmeldung im Browser",
+    "refresh_cursor_title": "Nach der Anmeldung in Cursor das Kontingent neu laden",
+    "copy_command": "Befehl kopieren",
+    "copied": "Kopiert",
+    "done_refresh": "Fertig, aktualisieren",
+    "docs": "Docs",
+    "untrack": "Nicht mehr verfolgen",
+    "untrack_account_title": "Dieses Konto aus der Kontingentliste entfernen",
+    "untrack_ok": "Entfernen",
+    "untracked_toast": "Verfolgung beendet",
+    "add_account_tab": "+ Konto",
+    "add_account_title": "Weiteres Google-Konto hinzufügen",
+    "add_account_hint": "Fügt nur ein Konto zur Kontingentliste hinzu. Wechselt nicht die aktive agy-Sitzung.",
+    "untrack_provider_title": "Aus der Kontingentliste entfernen (keine Abmeldung)",
+    "account_fallback": "Konto",
+    "loading": "wird geladen…",
+    "updated_at": "aktualisiert {time}",
+    "empty_hint": "Mit Verfolgen oder Anmelden / Speichern beginnen",
+    "provider_added": "{kind} hinzugefügt",
+    "provider_untracked": "Verfolgung von {name} beendet",
+    "reset_at": "setzt zurück",
+    "request_failed": "Anfrage fehlgeschlagen",
+    "settings": "Einstellungen",
+    "settings_title": "Einstellungen",
+    "settings_language": "Sprache",
+    "settings_refresh_interval": "Aktualisierungsintervall (Sek.)",
+    "settings_provider_timeout": "Anbieter-Zeitlimit (Sek.)",
+    "settings_cache_ttl": "Cache-Dauer (Sek.)",
+    "settings_server": "Server (schreibgeschützt)",
+    "settings_bind_hint": "Prozess neu starten, um Adresse oder Port zu ändern.",
+    "settings_save": "Speichern",
+    "settings_close": "Schließen",
+    "settings_saved": "Einstellungen gespeichert",
+    "theme_to_dark": "Dunkel",
+    "theme_to_light": "Hell",
+    "theme_to_dark_title": "Zum dunklen Modus wechseln",
+    "theme_to_light_title": "Zum hellen Modus wechseln",
+    "t3_read": "gelesen {time}",
+    "pct_left": "{n}% übrig",
+    "antigravity_stale": "Letzte Abfrage {time}. Das ist nicht die aktuelle Quote. Der nächste Antigravity-Lauf dieses Kontos erneuert sie.",
+    "antigravity_stale_reset": "Letzte Abfrage {time} ist abgelaufen: der Reset-Zeitpunkt ist vorbei. Der nächste Antigravity-Lauf dieses Kontos liest sie neu."
+  },
+  "providers": {
+    "cursor": {
+      "summary": "Cursor-Desktop-Sitzung auf diesem PC (keine Browser-Anmeldung).",
+      "steps": [
+        "In der Cursor-Desktop-App anmelden.",
+        "Verfolgen — das Kontingent wird aus der Sitzung dieses Computers gelesen."
+      ]
+    },
+    "antigravity": {
+      "summary": "Google Antigravity (agy).",
+      "steps": [
+        "Mit Google verbinden — im Browser bestätigen.",
+        "Code hier einfügen → Weiter."
+      ]
+    },
+    "claude-code": {
+      "summary": "Claude Code CLI OAuth.",
+      "steps": [
+        "Im Terminal `claude` → `/login` ausführen.",
+        "Aktualisieren."
+      ]
+    },
+    "codex": {
+      "summary": "ChatGPT / Codex CLI.",
+      "steps": [
+        "`codex login` ausführen.",
+        "Aktualisieren."
+      ]
+    },
+    "opencode": {
+      "summary": "OpenCode Go API-Schlüssel.",
+      "steps": [
+        "Schlüssel bei OpenCode holen (oder /connect).",
+        "Einfügen → Speichern."
+      ]
+    },
+    "openrouter": {
+      "summary": "OpenRouter API-Schlüssel.",
+      "steps": [
+        "Schlüssel auf der Keys-Seite erstellen.",
+        "Einfügen → Speichern."
+      ]
+    },
+    "t3": {
+      "summary": "In T3 Code auf diesem PC angemeldete Konten.",
+      "steps": [
+        "T3 Code geöffnet lassen, damit es Kontingente aktualisiert.",
+        "Verfolgen — diese Karte liest den lokalen T3-Cache."
+      ]
+    }
+  },
+  "errors": {
+    "antigravity.no_active_session": "Zuerst die Anmeldung starten (keine aktive Sitzung).",
+    "antigravity.no_saved_token": "Kein gespeichertes Token; erneut anmelden.",
+    "antigravity.agy_missing": "Antigravity CLI (agy) nicht gefunden. Installation: https://antigravity.google.",
+    "antigravity.sign_in_cancelled": "Anmeldung abgebrochen.",
+    "antigravity.spawn_failed": "agy konnte nicht gestartet werden: {detail}",
+    "antigravity.no_stdout": "agy hat kein stdout",
+    "antigravity.no_stderr": "agy hat kein stderr",
+    "antigravity.no_stdin": "agy hat kein stdin",
+    "antigravity.closed_without_url": "agy wurde beendet, ohne einen Google-Link auszugeben.",
+    "antigravity.url_timeout": "agy hat keinen Google-Anmeldelink geliefert (Zeitüberschreitung).",
+    "antigravity.code_empty": "Code ist leer.",
+    "antigravity.session_closed": "Anmeldesitzung geschlossen. Anmeldung erneut starten.",
+    "antigravity.code_write_failed": "Code konnte nicht geschrieben werden: {detail}",
+    "antigravity.flush_failed": "flush: {detail}",
+    "antigravity.wait_error": "Fehler beim Warten auf agy: {detail}",
+    "antigravity.code_timeout": "Zeitüberschreitung, während agy den Code verarbeitete. Neuen Code holen und erneut versuchen.",
+    "antigravity.exit_failed": "agy-Anmeldung fehlgeschlagen (Exit {code}). Anmeldung für einen neuen Code erneut starten.",
+    "antigravity.no_wincred": "agy ist beendet, aber es gibt keine WinCred-Sitzung. Aktualisieren oder erneut anmelden."
+  }
+}

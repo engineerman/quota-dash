@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "providers": [
+    {
+      "kind": "cursor",
+      "display_name": "Cursor",
+      "setup": "app",
+      "command": null,
+      "docs_url": null,
+      "dashboard_url": "https://cursor.com/dashboard/spending",
+      "accepts_api_key": false,
+      "secret_slot": null,
+      "logo": "/icons/cursor.svg"
+    },
+    {
+      "kind": "antigravity",
+      "display_name": "Antigravity",
+      "setup": "oauth_code",
+      "command": "agy acp --login",
+      "docs_url": "https://antigravity.google/docs/install/",
+      "dashboard_url": null,
+      "accepts_api_key": false,
+      "secret_slot": null,
+      "logo": "/icons/antigravity.svg"
+    },
+    {
+      "kind": "claude-code",
+      "display_name": "Claude Code",
+      "setup": "cli",
+      "command": "claude",
+      "docs_url": null,
+      "dashboard_url": "https://claude.ai/settings/usage",
+      "accepts_api_key": false,
+      "secret_slot": null,
+      "logo": "/icons/claude-code.svg"
+    },
+    {
+      "kind": "codex",
+      "display_name": "Codex",
+      "setup": "cli",
+      "command": "codex login",
+      "docs_url": "https://chatgpt.com/codex",
+      "dashboard_url": "https://chatgpt.com/codex/settings/usage",
+      "accepts_api_key": false,
+      "secret_slot": null,
+      "logo": "/icons/codex.svg"
+    },
+    {
+      "kind": "opencode",
+      "display_name": "OpenCode",
+      "setup": "api_key",
+      "command": null,
+      "docs_url": "https://opencode.ai/auth",
+      "dashboard_url": "https://opencode.ai/auth",
+      "accepts_api_key": true,
+      "secret_slot": "opencode",
+      "logo": "/icons/opencode.svg"
+    },
+    {
+      "kind": "openrouter",
+      "display_name": "OpenRouter",
+      "setup": "api_key",
+      "command": null,
+      "docs_url": "https://openrouter.ai/settings/keys",
+      "dashboard_url": "https://openrouter.ai/activity",
+      "accepts_api_key": true,
+      "secret_slot": "openrouter",
+      "logo": "/icons/openrouter.svg"
+    },
+    {
+      "kind": "t3",
+      "display_name": "T3 Code",
+      "setup": "app",
+      "command": null,
+      "docs_url": null,
+      "dashboard_url": null,
+      "accepts_api_key": false,
+      "secret_slot": null,
+      "logo": "/icons/t3.svg"
+    }
+  ]
+}

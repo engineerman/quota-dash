@@ -1,0 +1,144 @@
+{
+  "lang": "en",
+  "fallback": "en",
+  "ui": {
+    "page_title": "quota-dash",
+    "lede": "Sign in or paste a key from each card. No long setup.",
+    "refresh": "Refresh",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "save": "Save",
+    "get_key": "Get key",
+    "api_key_placeholder": "API key",
+    "saved_toast": "{name} saved",
+    "connect_google": "Connect with Google",
+    "open_google": "Open Google",
+    "open_google_title": "If the browser did not open or you closed it",
+    "google_code_placeholder": "Google code or callback URL",
+    "continue": "Continue",
+    "paste_google_code_first": "Paste the Google code first.",
+    "submitting_code": "Submitting code…",
+    "google_approve_toast": "Approve in Google — paste the code here",
+    "antigravity_connected": "Antigravity connected",
+    "sign_in_failed_retry": "Sign-in failed — try a new code",
+    "status_ok": "OK",
+    "status_needs_login": "Needs login",
+    "status_stale": "Not live",
+    "status_error": "Error",
+    "status_off": "off",
+    "dashboard": "Dashboard",
+    "track": "Track",
+    "track_cursor_title": "Read quota from the Cursor session on this PC — no browser sign-in",
+    "refresh_cursor_title": "After signing in to Cursor, reload quota",
+    "copy_command": "Copy command",
+    "copied": "Copied",
+    "done_refresh": "Done, refresh",
+    "docs": "Docs",
+    "untrack": "Stop tracking",
+    "untrack_account_title": "Remove this account from the quota list",
+    "untrack_ok": "Remove",
+    "untracked_toast": "Stopped tracking",
+    "add_account_tab": "+ account",
+    "add_account_title": "Add another Google account",
+    "add_account_hint": "Adds an account to the quota list only. Does not switch agy’s active session.",
+    "untrack_provider_title": "Remove from quota list (does not sign out)",
+    "account_fallback": "account",
+    "loading": "loading…",
+    "updated_at": "updated {time}",
+    "empty_hint": "Use Track or Sign in / Save to get started",
+    "provider_added": "{kind} added",
+    "provider_untracked": "Stopped tracking {name}",
+    "reset_at": "resets",
+    "request_failed": "request failed",
+    "settings": "Settings",
+    "settings_title": "Settings",
+    "settings_language": "Language",
+    "settings_refresh_interval": "Refresh interval (sec)",
+    "settings_provider_timeout": "Provider timeout (sec)",
+    "settings_cache_ttl": "Cache TTL (sec)",
+    "settings_server": "Server (read-only)",
+    "settings_bind_hint": "Restart the process to change bind address or port.",
+    "settings_save": "Save",
+    "settings_close": "Close",
+    "settings_saved": "Settings saved",
+    "theme_to_dark": "Dark",
+    "theme_to_light": "Light",
+    "theme_to_dark_title": "Switch to dark mode",
+    "theme_to_light_title": "Switch to light mode",
+    "t3_read": "read {time}",
+    "pct_left": "{n}% left",
+    "antigravity_stale": "Last reading {time}. Not the current quota. The next Antigravity turn on this account refreshes it.",
+    "antigravity_stale_reset": "Last reading {time} is out of date: its reset time has passed. The next Antigravity turn on this account reads it again."
+  },
+  "providers": {
+    "cursor": {
+      "summary": "Cursor desktop session on this PC (no browser sign-in).",
+      "steps": [
+        "Sign in to the Cursor desktop app.",
+        "Track — quota is read from this machine’s session."
+      ]
+    },
+    "antigravity": {
+      "summary": "Google Antigravity (agy).",
+      "steps": [
+        "Connect with Google — approve in the browser.",
+        "Paste the code here → Continue."
+      ]
+    },
+    "claude-code": {
+      "summary": "Claude Code CLI OAuth.",
+      "steps": [
+        "In terminal run `claude` → `/login`.",
+        "Refresh."
+      ]
+    },
+    "codex": {
+      "summary": "ChatGPT / Codex CLI.",
+      "steps": [
+        "Run `codex login`.",
+        "Refresh."
+      ]
+    },
+    "opencode": {
+      "summary": "OpenCode Go API key.",
+      "steps": [
+        "Get a key from OpenCode (or /connect).",
+        "Paste → Save."
+      ]
+    },
+    "openrouter": {
+      "summary": "OpenRouter API key.",
+      "steps": [
+        "Create a key on the Keys page.",
+        "Paste → Save."
+      ]
+    },
+    "t3": {
+      "summary": "Accounts already signed in to T3 Code on this PC.",
+      "steps": [
+        "Leave T3 Code open so it keeps refreshing quotas.",
+        "Track — this card reads T3’s local cache."
+      ]
+    }
+  },
+  "errors": {
+    "antigravity.no_active_session": "Start sign-in first (no active session).",
+    "antigravity.no_saved_token": "No saved token; sign in again.",
+    "antigravity.agy_missing": "Antigravity CLI (agy) not found. Install from https://antigravity.google.",
+    "antigravity.sign_in_cancelled": "Sign-in cancelled.",
+    "antigravity.spawn_failed": "failed to start agy: {detail}",
+    "antigravity.no_stdout": "agy has no stdout",
+    "antigravity.no_stderr": "agy has no stderr",
+    "antigravity.no_stdin": "agy has no stdin",
+    "antigravity.closed_without_url": "agy exited without a Google link.",
+    "antigravity.url_timeout": "agy did not return a Google sign-in link (timeout).",
+    "antigravity.code_empty": "Code is empty.",
+    "antigravity.session_closed": "Sign-in session closed. Start sign-in again.",
+    "antigravity.code_write_failed": "could not write code: {detail}",
+    "antigravity.flush_failed": "flush: {detail}",
+    "antigravity.wait_error": "error while waiting for agy: {detail}",
+    "antigravity.code_timeout": "timeout while agy processed the code. Get a new code and try again.",
+    "antigravity.exit_failed": "agy sign-in failed (exit {code}). Start sign-in again for a fresh code.",
+    "antigravity.no_wincred": "agy finished but there is no WinCred session. Refresh or sign in again."
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "lang": "zh",
+  "fallback": "en",
+  "ui": {
+    "page_title": "quota-dash",
+    "lede": "在每张卡片上登录，或粘贴密钥。无需冗长设置。",
+    "refresh": "刷新",
+    "cancel": "取消",
+    "confirm": "确认",
+    "save": "保存",
+    "get_key": "获取密钥",
+    "api_key_placeholder": "API 密钥",
+    "saved_toast": "已保存 {name}",
+    "connect_google": "使用 Google 连接",
+    "open_google": "打开 Google",
+    "open_google_title": "如果浏览器没有打开，或你关掉了它",
+    "google_code_placeholder": "Google 代码或回调 URL",
+    "continue": "继续",
+    "paste_google_code_first": "请先粘贴 Google 代码。",
+    "submitting_code": "正在提交代码…",
+    "google_approve_toast": "在 Google 中批准 — 把代码粘贴到这里",
+    "antigravity_connected": "已连接 Antigravity",
+    "sign_in_failed_retry": "登录失败 — 请换一个新代码",
+    "status_ok": "正常",
+    "status_needs_login": "需要登录",
+    "status_stale": "不是最新",
+    "status_error": "错误",
+    "status_off": "关闭",
+    "dashboard": "仪表盘",
+    "track": "跟踪",
+    "track_cursor_title": "从这台电脑上的 Cursor 会话读取配额 — 无需在浏览器中登录",
+    "refresh_cursor_title": "登录 Cursor 后重新加载配额",
+    "copy_command": "复制命令",
+    "copied": "已复制",
+    "done_refresh": "完成，刷新",
+    "docs": "文档",
+    "untrack": "停止跟踪",
+    "untrack_account_title": "从配额列表中移除此账号",
+    "untrack_ok": "移除",
+    "untracked_toast": "已停止跟踪",
+    "add_account_tab": "+ 账号",
+    "add_account_title": "添加另一个 Google 账号",
+    "add_account_hint": "只把账号加入配额列表。不会切换 agy 的当前会话。",
+    "untrack_provider_title": "从配额列表中移除（不会退出登录）",
+    "account_fallback": "账号",
+    "loading": "加载中…",
+    "updated_at": "更新于 {time}",
+    "empty_hint": "使用“跟踪”或“登录 / 保存”开始",
+    "provider_added": "已添加 {kind}",
+    "provider_untracked": "已停止跟踪 {name}",
+    "reset_at": "重置",
+    "request_failed": "请求失败",
+    "settings": "设置",
+    "settings_title": "设置",
+    "settings_language": "语言",
+    "settings_refresh_interval": "刷新间隔（秒）",
+    "settings_provider_timeout": "提供方超时（秒）",
+    "settings_cache_ttl": "缓存时长（秒）",
+    "settings_server": "服务器（只读）",
+    "settings_bind_hint": "要更改地址或端口，请重启进程。",
+    "settings_save": "保存",
+    "settings_close": "关闭",
+    "settings_saved": "设置已保存",
+    "theme_to_dark": "深色",
+    "theme_to_light": "浅色",
+    "theme_to_dark_title": "切换到深色模式",
+    "theme_to_light_title": "切换到浅色模式",
+    "t3_read": "读取于 {time}",
+    "pct_left": "剩余 {n}%",
+    "antigravity_stale": "上次读取 {time}。这不是当前配额。此账号的下一次 Antigravity 回合会刷新它。",
+    "antigravity_stale_reset": "上次读取 {time} 已失效：重置时间已过。此账号的下一次 Antigravity 回合会重新读取。"
+  },
+  "providers": {
+    "cursor": {
+      "summary": "这台电脑上的 Cursor 桌面会话（无需在浏览器中登录）。",
+      "steps": [
+        "在 Cursor 桌面应用中登录。",
+        "跟踪 — 配额从这台机器的会话中读取。"
+      ]
+    },
+    "antigravity": {
+      "summary": "Google Antigravity (agy)。",
+      "steps": [
+        "使用 Google 连接 — 在浏览器中批准。",
+        "把代码粘贴到这里 → 继续。"
+      ]
+    },
+    "claude-code": {
+      "summary": "Claude Code CLI OAuth。",
+      "steps": [
+        "在终端运行 `claude` → `/login`。",
+        "刷新。"
+      ]
+    },
+    "codex": {
+      "summary": "ChatGPT / Codex CLI。",
+      "steps": [
+        "运行 `codex login`。",
+        "刷新。"
+      ]
+    },
+    "opencode": {
+      "summary": "OpenCode Go API 密钥。",
+      "steps": [
+        "从 OpenCode 获取密钥（或使用 /connect）。",
+        "粘贴 → 保存。"
+      ]
+    },
+    "openrouter": {
+      "summary": "OpenRouter API 密钥。",
+      "steps": [
+        "在 Keys 页面创建密钥。",
+        "粘贴 → 保存。"
+      ]
+    },
+    "t3": {
+      "summary": "已在这台电脑的 T3 Code 中登录的账户。",
+      "steps": [
+        "让 T3 Code 保持打开，配额由它刷新。",
+        "跟踪 — 此卡片读取 T3 的本地缓存。"
+      ]
+    }
+  },
+  "errors": {
+    "antigravity.no_active_session": "请先开始登录（没有活动会话）。",
+    "antigravity.no_saved_token": "没有已保存的令牌；请重新登录。",
+    "antigravity.agy_missing": "找不到 Antigravity CLI (agy)。请从 https://antigravity.google 安装。",
+    "antigravity.sign_in_cancelled": "已取消登录。",
+    "antigravity.spawn_failed": "无法启动 agy：{detail}",
+    "antigravity.no_stdout": "agy 没有 stdout",
+    "antigravity.no_stderr": "agy 没有 stderr",
+    "antigravity.no_stdin": "agy 没有 stdin",
+    "antigravity.closed_without_url": "agy 退出时没有给出 Google 链接。",
+    "antigravity.url_timeout": "agy 没有返回 Google 登录链接（超时）。",
+    "antigravity.code_empty": "代码为空。",
+    "antigravity.session_closed": "登录会话已关闭。请重新开始登录。",
+    "antigravity.code_write_failed": "无法写入代码：{detail}",
+    "antigravity.flush_failed": "flush：{detail}",
+    "antigravity.wait_error": "等待 agy 时出错：{detail}",
+    "antigravity.code_timeout": "agy 处理代码时超时。请获取新代码后重试。",
+    "antigravity.exit_failed": "agy 登录失败（退出 {code}）。请重新登录以获取新代码。",
+    "antigravity.no_wincred": "agy 已结束，但没有 WinCred 会话。请刷新或重新登录。"
+  }
+}

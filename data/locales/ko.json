@@ -1,0 +1,144 @@
+{
+  "lang": "ko",
+  "fallback": "en",
+  "ui": {
+    "page_title": "quota-dash",
+    "lede": "각 카드에서 로그인하거나 키를 붙여 넣으세요. 긴 설치는 없습니다.",
+    "refresh": "새로고침",
+    "cancel": "취소",
+    "confirm": "확인",
+    "save": "저장",
+    "get_key": "키 받기",
+    "api_key_placeholder": "API 키",
+    "saved_toast": "{name} 저장됨",
+    "connect_google": "Google로 연결",
+    "open_google": "Google 열기",
+    "open_google_title": "브라우저가 열리지 않았거나 닫은 경우",
+    "google_code_placeholder": "Google 코드 또는 콜백 URL",
+    "continue": "계속",
+    "paste_google_code_first": "먼저 Google 코드를 붙여 넣으세요.",
+    "submitting_code": "코드를 보내는 중…",
+    "google_approve_toast": "Google에서 승인한 뒤 코드를 여기에 붙여 넣으세요",
+    "antigravity_connected": "Antigravity 연결됨",
+    "sign_in_failed_retry": "로그인 실패 — 새 코드를 시도하세요",
+    "status_ok": "OK",
+    "status_needs_login": "로그인 필요",
+    "status_stale": "최신 아님",
+    "status_error": "오류",
+    "status_off": "꺼짐",
+    "dashboard": "대시보드",
+    "track": "추적",
+    "track_cursor_title": "이 PC의 Cursor 세션에서 할당량을 읽습니다 — 브라우저 로그인 없음",
+    "refresh_cursor_title": "Cursor에 로그인한 뒤 할당량을 다시 불러옵니다",
+    "copy_command": "명령 복사",
+    "copied": "복사됨",
+    "done_refresh": "완료, 새로고침",
+    "docs": "Docs",
+    "untrack": "추적 중지",
+    "untrack_account_title": "이 계정을 할당량 목록에서 제거",
+    "untrack_ok": "제거",
+    "untracked_toast": "추적을 중지했습니다",
+    "add_account_tab": "+ 계정",
+    "add_account_title": "다른 Google 계정 추가",
+    "add_account_hint": "할당량 목록에 계정만 추가합니다. agy의 활성 세션은 바꾸지 않습니다.",
+    "untrack_provider_title": "할당량 목록에서 제거 (로그아웃하지 않음)",
+    "account_fallback": "계정",
+    "loading": "불러오는 중…",
+    "updated_at": "업데이트 {time}",
+    "empty_hint": "추적 또는 로그인 / 저장으로 시작하세요",
+    "provider_added": "{kind} 추가됨",
+    "provider_untracked": "{name} 추적을 중지했습니다",
+    "reset_at": "초기화",
+    "request_failed": "요청 실패",
+    "settings": "설정",
+    "settings_title": "설정",
+    "settings_language": "언어",
+    "settings_refresh_interval": "새로고침 간격(초)",
+    "settings_provider_timeout": "공급자 제한 시간(초)",
+    "settings_cache_ttl": "캐시 유지 시간(초)",
+    "settings_server": "서버(읽기 전용)",
+    "settings_bind_hint": "주소나 포트를 바꾸려면 프로세스를 다시 시작하세요.",
+    "settings_save": "저장",
+    "settings_close": "닫기",
+    "settings_saved": "설정을 저장했습니다",
+    "theme_to_dark": "어둡게",
+    "theme_to_light": "밝게",
+    "theme_to_dark_title": "어두운 모드로 전환",
+    "theme_to_light_title": "밝은 모드로 전환",
+    "t3_read": "읽음 {time}",
+    "pct_left": "{n}% 남음",
+    "antigravity_stale": "마지막 읽기 {time}. 현재 할당량이 아닙니다. 이 계정의 다음 Antigravity 턴에서 갱신됩니다.",
+    "antigravity_stale_reset": "마지막 읽기 {time}은 지났습니다. 초기화 시각이 지났습니다. 이 계정의 다음 Antigravity 턴에서 다시 읽습니다."
+  },
+  "providers": {
+    "cursor": {
+      "summary": "이 PC의 Cursor 데스크톱 세션(브라우저 로그인 없음).",
+      "steps": [
+        "Cursor 데스크톱 앱에 로그인합니다.",
+        "추적 — 할당량은 이 컴퓨터의 세션에서 읽습니다."
+      ]
+    },
+    "antigravity": {
+      "summary": "Google Antigravity (agy).",
+      "steps": [
+        "Google로 연결 — 브라우저에서 승인합니다.",
+        "코드를 여기에 붙여 넣기 → 계속."
+      ]
+    },
+    "claude-code": {
+      "summary": "Claude Code CLI OAuth.",
+      "steps": [
+        "터미널에서 `claude` → `/login`을 실행합니다.",
+        "새로고침."
+      ]
+    },
+    "codex": {
+      "summary": "ChatGPT / Codex CLI.",
+      "steps": [
+        "`codex login`을 실행합니다.",
+        "새로고침."
+      ]
+    },
+    "opencode": {
+      "summary": "OpenCode Go API 키.",
+      "steps": [
+        "OpenCode에서 키를 받습니다(또는 /connect).",
+        "붙여 넣기 → 저장."
+      ]
+    },
+    "openrouter": {
+      "summary": "OpenRouter API 키.",
+      "steps": [
+        "Keys 페이지에서 키를 만듭니다.",
+        "붙여 넣기 → 저장."
+      ]
+    },
+    "t3": {
+      "summary": "이 PC의 T3 Code에 로그인된 계정.",
+      "steps": [
+        "T3 Code를 켜 두세요. 할당량은 T3가 새로고침합니다.",
+        "추적 — 이 카드는 T3의 로컬 캐시를 읽습니다."
+      ]
+    }
+  },
+  "errors": {
+    "antigravity.no_active_session": "먼저 로그인을 시작하세요(활성 세션 없음).",
+    "antigravity.no_saved_token": "저장된 토큰이 없습니다. 다시 로그인하세요.",
+    "antigravity.agy_missing": "Antigravity CLI(agy)를 찾을 수 없습니다. https://antigravity.google 에서 설치하세요.",
+    "antigravity.sign_in_cancelled": "로그인을 취소했습니다.",
+    "antigravity.spawn_failed": "agy를 시작하지 못했습니다: {detail}",
+    "antigravity.no_stdout": "agy에 stdout이 없습니다",
+    "antigravity.no_stderr": "agy에 stderr이 없습니다",
+    "antigravity.no_stdin": "agy에 stdin이 없습니다",
+    "antigravity.closed_without_url": "agy가 Google 링크 없이 종료되었습니다.",
+    "antigravity.url_timeout": "agy가 Google 로그인 링크를 반환하지 않았습니다(시간 초과).",
+    "antigravity.code_empty": "코드가 비어 있습니다.",
+    "antigravity.session_closed": "로그인 세션이 닫혔습니다. 로그인을 다시 시작하세요.",
+    "antigravity.code_write_failed": "코드를 쓰지 못했습니다: {detail}",
+    "antigravity.flush_failed": "flush: {detail}",
+    "antigravity.wait_error": "agy를 기다리는 중 오류: {detail}",
+    "antigravity.code_timeout": "agy가 코드를 처리하는 동안 시간이 초과되었습니다. 새 코드를 받아 다시 시도하세요.",
+    "antigravity.exit_failed": "agy 로그인에 실패했습니다(종료 {code}). 새 코드를 받으려면 로그인을 다시 시작하세요.",
+    "antigravity.no_wincred": "agy는 끝났지만 WinCred 세션이 없습니다. 새로고침하거나 다시 로그인하세요."
+  }
+}

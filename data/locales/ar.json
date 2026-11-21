@@ -1,0 +1,144 @@
+{
+  "lang": "ar",
+  "fallback": "en",
+  "ui": {
+    "page_title": "quota-dash",
+    "lede": "سجّل الدخول أو الصق مفتاحًا من كل بطاقة. لا إعداد طويل.",
+    "refresh": "تحديث",
+    "cancel": "إلغاء",
+    "confirm": "تأكيد",
+    "save": "حفظ",
+    "get_key": "احصل على مفتاح",
+    "api_key_placeholder": "مفتاح API",
+    "saved_toast": "تم حفظ {name}",
+    "connect_google": "الاتصال عبر Google",
+    "open_google": "فتح Google",
+    "open_google_title": "إذا لم يُفتح المتصفح أو أغلقته",
+    "google_code_placeholder": "رمز Google أو عنوان callback",
+    "continue": "متابعة",
+    "paste_google_code_first": "الصق رمز Google أولًا.",
+    "submitting_code": "جارٍ إرسال الرمز…",
+    "google_approve_toast": "وافق في Google — الصق الرمز هنا",
+    "antigravity_connected": "تم الاتصال بـ Antigravity",
+    "sign_in_failed_retry": "فشل تسجيل الدخول — جرّب رمزًا جديدًا",
+    "status_ok": "سليم",
+    "status_needs_login": "يلزم تسجيل الدخول",
+    "status_stale": "غير محدّث",
+    "status_error": "خطأ",
+    "status_off": "متوقف",
+    "dashboard": "لوحة",
+    "track": "تتبّع",
+    "track_cursor_title": "يقرأ الحصة من جلسة Cursor على هذا الجهاز — بلا تسجيل دخول في المتصفح",
+    "refresh_cursor_title": "بعد تسجيل الدخول إلى Cursor، أعد تحميل الحصة",
+    "copy_command": "نسخ الأمر",
+    "copied": "تم النسخ",
+    "done_refresh": "تم، حدّث",
+    "docs": "Docs",
+    "untrack": "إيقاف التتبّع",
+    "untrack_account_title": "إزالة هذا الحساب من قائمة الحصص",
+    "untrack_ok": "إزالة",
+    "untracked_toast": "توقف التتبّع",
+    "add_account_tab": "+ حساب",
+    "add_account_title": "إضافة حساب Google آخر",
+    "add_account_hint": "يضيف حسابًا إلى قائمة الحصص فقط. لا يبدّل جلسة agy النشطة.",
+    "untrack_provider_title": "إزالة من قائمة الحصص (دون تسجيل الخروج)",
+    "account_fallback": "حساب",
+    "loading": "جارٍ التحميل…",
+    "updated_at": "تم التحديث {time}",
+    "empty_hint": "استخدم «تتبّع» أو «تسجيل الدخول / حفظ» للبدء",
+    "provider_added": "تمت إضافة {kind}",
+    "provider_untracked": "توقف تتبّع {name}",
+    "reset_at": "تُصفَّر",
+    "request_failed": "فشل الطلب",
+    "settings": "الإعدادات",
+    "settings_title": "الإعدادات",
+    "settings_language": "اللغة",
+    "settings_refresh_interval": "فاصل التحديث (ث)",
+    "settings_provider_timeout": "مهلة المزوّد (ث)",
+    "settings_cache_ttl": "مدة التخزين المؤقت (ث)",
+    "settings_server": "الخادم (للقراءة فقط)",
+    "settings_bind_hint": "أعد تشغيل العملية لتغيير العنوان أو المنفذ.",
+    "settings_save": "حفظ",
+    "settings_close": "إغلاق",
+    "settings_saved": "تم حفظ الإعدادات",
+    "theme_to_dark": "داكن",
+    "theme_to_light": "فاتح",
+    "theme_to_dark_title": "التبديل إلى الوضع الداكن",
+    "theme_to_light_title": "التبديل إلى الوضع الفاتح",
+    "t3_read": "قُرئ {time}",
+    "pct_left": "متبقٍ {n}%",
+    "antigravity_stale": "آخر قراءة {time}. هذه ليست الحصة الحالية. تتجدد في الجولة التالية من Antigravity لهذا الحساب.",
+    "antigravity_stale_reset": "آخر قراءة {time} لم تعد صالحة: مرّ وقت إعادة التعيين. الجولة التالية من Antigravity لهذا الحساب تعيد قراءتها."
+  },
+  "providers": {
+    "cursor": {
+      "summary": "جلسة Cursor على هذا الجهاز (بلا تسجيل دخول في المتصفح).",
+      "steps": [
+        "سجّل الدخول في تطبيق Cursor.",
+        "تتبّع — تُقرأ الحصة من جلسة هذا الجهاز."
+      ]
+    },
+    "antigravity": {
+      "summary": "Google Antigravity (agy).",
+      "steps": [
+        "الاتصال عبر Google — وافق في المتصفح.",
+        "الصق الرمز هنا ← متابعة."
+      ]
+    },
+    "claude-code": {
+      "summary": "OAuth لأداة Claude Code.",
+      "steps": [
+        "في الطرفية نفّذ `claude` ← `/login`.",
+        "تحديث."
+      ]
+    },
+    "codex": {
+      "summary": "أداة ChatGPT / Codex.",
+      "steps": [
+        "نفّذ `codex login`.",
+        "تحديث."
+      ]
+    },
+    "opencode": {
+      "summary": "مفتاح API لـ OpenCode Go.",
+      "steps": [
+        "احصل على مفتاح من OpenCode (أو /connect).",
+        "لصق ← حفظ."
+      ]
+    },
+    "openrouter": {
+      "summary": "مفتاح API لـ OpenRouter.",
+      "steps": [
+        "أنشئ مفتاحًا في صفحة Keys.",
+        "لصق ← حفظ."
+      ]
+    },
+    "t3": {
+      "summary": "الحسابات المسجّلة في T3 Code على هذا الجهاز.",
+      "steps": [
+        "اترك T3 Code مفتوحًا ليحدّث الحصص.",
+        "تتبّع — تقرأ هذه البطاقة ذاكرة T3 المحلية."
+      ]
+    }
+  },
+  "errors": {
+    "antigravity.no_active_session": "ابدأ تسجيل الدخول أولًا (لا توجد جلسة نشطة).",
+    "antigravity.no_saved_token": "لا يوجد رمز محفوظ؛ سجّل الدخول مرة أخرى.",
+    "antigravity.agy_missing": "لم يُعثر على أداة Antigravity (agy). ثبّتها من https://antigravity.google.",
+    "antigravity.sign_in_cancelled": "أُلغي تسجيل الدخول.",
+    "antigravity.spawn_failed": "تعذّر تشغيل agy: {detail}",
+    "antigravity.no_stdout": "agy بلا stdout",
+    "antigravity.no_stderr": "agy بلا stderr",
+    "antigravity.no_stdin": "agy بلا stdin",
+    "antigravity.closed_without_url": "أُغلق agy من دون رابط Google.",
+    "antigravity.url_timeout": "لم يُرجع agy رابط تسجيل دخول Google (انتهت المهلة).",
+    "antigravity.code_empty": "الرمز فارغ.",
+    "antigravity.session_closed": "أُغلقت جلسة تسجيل الدخول. ابدأ من جديد.",
+    "antigravity.code_write_failed": "تعذّرت كتابة الرمز: {detail}",
+    "antigravity.flush_failed": "flush: {detail}",
+    "antigravity.wait_error": "خطأ أثناء انتظار agy: {detail}",
+    "antigravity.code_timeout": "انتهت المهلة بينما كان agy يعالج الرمز. احصل على رمز جديد وحاول مرة أخرى.",
+    "antigravity.exit_failed": "فشل تسجيل دخول agy (خروج {code}). ابدأ تسجيل الدخول من جديد للحصول على رمز جديد.",
+    "antigravity.no_wincred": "انتهى agy لكن لا توجد جلسة WinCred. حدّث أو سجّل الدخول مرة أخرى."
+  }
+}

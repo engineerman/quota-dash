@@ -1,0 +1,144 @@
+{
+  "lang": "nl",
+  "fallback": "en",
+  "ui": {
+    "page_title": "quota-dash",
+    "lede": "Meld u aan of plak een sleutel van elke kaart. Geen lange installatie.",
+    "refresh": "Vernieuwen",
+    "cancel": "Annuleren",
+    "confirm": "Bevestigen",
+    "save": "Opslaan",
+    "get_key": "Sleutel ophalen",
+    "api_key_placeholder": "API-sleutel",
+    "saved_toast": "{name} opgeslagen",
+    "connect_google": "Verbinden met Google",
+    "open_google": "Google openen",
+    "open_google_title": "Als de browser niet opende of u hem sloot",
+    "google_code_placeholder": "Google-code of callback-URL",
+    "continue": "Doorgaan",
+    "paste_google_code_first": "Plak eerst de Google-code.",
+    "submitting_code": "Code wordt verzonden…",
+    "google_approve_toast": "Keur goed in Google — plak de code hier",
+    "antigravity_connected": "Antigravity verbonden",
+    "sign_in_failed_retry": "Aanmelden mislukt — probeer een nieuwe code",
+    "status_ok": "OK",
+    "status_needs_login": "Aanmelden vereist",
+    "status_stale": "Niet actueel",
+    "status_error": "Fout",
+    "status_off": "uit",
+    "dashboard": "Dashboard",
+    "track": "Volgen",
+    "track_cursor_title": "Lees het quotum uit de Cursor-sessie op deze pc — geen aanmelding in de browser",
+    "refresh_cursor_title": "Laad het quotum opnieuw nadat u bent aangemeld bij Cursor",
+    "copy_command": "Opdracht kopiëren",
+    "copied": "Gekopieerd",
+    "done_refresh": "Klaar, vernieuwen",
+    "docs": "Docs",
+    "untrack": "Niet meer volgen",
+    "untrack_account_title": "Dit account uit de quotumlijst verwijderen",
+    "untrack_ok": "Verwijderen",
+    "untracked_toast": "Volgen gestopt",
+    "add_account_tab": "+ account",
+    "add_account_title": "Nog een Google-account toevoegen",
+    "add_account_hint": "Voegt alleen een account toe aan de quotumlijst. Wisselt de actieve agy-sessie niet.",
+    "untrack_provider_title": "Uit de quotumlijst verwijderen (meldt niet af)",
+    "account_fallback": "account",
+    "loading": "laden…",
+    "updated_at": "bijgewerkt {time}",
+    "empty_hint": "Gebruik Volgen of Aanmelden / Opslaan om te beginnen",
+    "provider_added": "{kind} toegevoegd",
+    "provider_untracked": "Volgen van {name} gestopt",
+    "reset_at": "wordt gereset",
+    "request_failed": "verzoek mislukt",
+    "settings": "Instellingen",
+    "settings_title": "Instellingen",
+    "settings_language": "Taal",
+    "settings_refresh_interval": "Vernieuwingsinterval (sec)",
+    "settings_provider_timeout": "Time-out van provider (sec)",
+    "settings_cache_ttl": "Cacheduur (sec)",
+    "settings_server": "Server (alleen-lezen)",
+    "settings_bind_hint": "Start het proces opnieuw om het adres of de poort te wijzigen.",
+    "settings_save": "Opslaan",
+    "settings_close": "Sluiten",
+    "settings_saved": "Instellingen opgeslagen",
+    "theme_to_dark": "Donker",
+    "theme_to_light": "Licht",
+    "theme_to_dark_title": "Naar donkere modus",
+    "theme_to_light_title": "Naar lichte modus",
+    "t3_read": "gelezen {time}",
+    "pct_left": "{n}% over",
+    "antigravity_stale": "Laatste meting {time}. Dit is niet de actuele quota. De volgende Antigravity-beurt van dit account ververst hem.",
+    "antigravity_stale_reset": "Laatste meting {time} is verlopen: het resettijdstip is voorbij. De volgende Antigravity-beurt van dit account leest hem opnieuw."
+  },
+  "providers": {
+    "cursor": {
+      "summary": "Cursor-desktopsessie op deze pc (geen aanmelding in de browser).",
+      "steps": [
+        "Meld u aan in de Cursor-desktopapp.",
+        "Volgen — het quotum wordt gelezen uit de sessie van deze machine."
+      ]
+    },
+    "antigravity": {
+      "summary": "Google Antigravity (agy).",
+      "steps": [
+        "Verbinden met Google — keur goed in de browser.",
+        "Plak de code hier → Doorgaan."
+      ]
+    },
+    "claude-code": {
+      "summary": "OAuth van Claude Code CLI.",
+      "steps": [
+        "Voer in de terminal `claude` → `/login` uit.",
+        "Vernieuwen."
+      ]
+    },
+    "codex": {
+      "summary": "ChatGPT / Codex CLI.",
+      "steps": [
+        "Voer `codex login` uit.",
+        "Vernieuwen."
+      ]
+    },
+    "opencode": {
+      "summary": "OpenCode Go API-sleutel.",
+      "steps": [
+        "Haal een sleutel op bij OpenCode (of /connect).",
+        "Plakken → Opslaan."
+      ]
+    },
+    "openrouter": {
+      "summary": "OpenRouter API-sleutel.",
+      "steps": [
+        "Maak een sleutel op de pagina Keys.",
+        "Plakken → Opslaan."
+      ]
+    },
+    "t3": {
+      "summary": "Accounts die op deze pc bij T3 Code zijn ingelogd.",
+      "steps": [
+        "Laat T3 Code open, dan ververst het de quota.",
+        "Volgen — deze kaart leest de lokale T3-cache."
+      ]
+    }
+  },
+  "errors": {
+    "antigravity.no_active_session": "Start eerst het aanmelden (geen actieve sessie).",
+    "antigravity.no_saved_token": "Geen opgeslagen token; meld u opnieuw aan.",
+    "antigravity.agy_missing": "Antigravity CLI (agy) niet gevonden. Installeer vanaf https://antigravity.google.",
+    "antigravity.sign_in_cancelled": "Aanmelden geannuleerd.",
+    "antigravity.spawn_failed": "agy starten mislukt: {detail}",
+    "antigravity.no_stdout": "agy heeft geen stdout",
+    "antigravity.no_stderr": "agy heeft geen stderr",
+    "antigravity.no_stdin": "agy heeft geen stdin",
+    "antigravity.closed_without_url": "agy stopte zonder een Google-link.",
+    "antigravity.url_timeout": "agy gaf geen Google-aanmeldlink (time-out).",
+    "antigravity.code_empty": "Code is leeg.",
+    "antigravity.session_closed": "Aanmeldsessie gesloten. Start het aanmelden opnieuw.",
+    "antigravity.code_write_failed": "code schrijven mislukt: {detail}",
+    "antigravity.flush_failed": "flush: {detail}",
+    "antigravity.wait_error": "fout tijdens het wachten op agy: {detail}",
+    "antigravity.code_timeout": "time-out terwijl agy de code verwerkte. Haal een nieuwe code op en probeer opnieuw.",
+    "antigravity.exit_failed": "agy-aanmelden mislukt (exit {code}). Start het aanmelden opnieuw voor een nieuwe code.",
+    "antigravity.no_wincred": "agy is klaar maar er is geen WinCred-sessie. Vernieuw of meld u opnieuw aan."
+  }
+}

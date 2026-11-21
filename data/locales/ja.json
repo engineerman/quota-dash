@@ -1,0 +1,144 @@
+{
+  "lang": "ja",
+  "fallback": "en",
+  "ui": {
+    "page_title": "quota-dash",
+    "lede": "各カードからサインインするか、キーを貼り付けます。長いセットアップはありません。",
+    "refresh": "更新",
+    "cancel": "キャンセル",
+    "confirm": "確認",
+    "save": "保存",
+    "get_key": "キーを取得",
+    "api_key_placeholder": "APIキー",
+    "saved_toast": "{name} を保存しました",
+    "connect_google": "Googleで接続",
+    "open_google": "Googleを開く",
+    "open_google_title": "ブラウザーが開かなかった、または閉じた場合",
+    "google_code_placeholder": "GoogleのコードまたはコールバックURL",
+    "continue": "続ける",
+    "paste_google_code_first": "先にGoogleのコードを貼り付けてください。",
+    "submitting_code": "コードを送信しています…",
+    "google_approve_toast": "Googleで承認し、コードをここに貼り付けてください",
+    "antigravity_connected": "Antigravityに接続しました",
+    "sign_in_failed_retry": "サインインに失敗しました — 新しいコードを試してください",
+    "status_ok": "OK",
+    "status_needs_login": "ログインが必要",
+    "status_stale": "最新ではない",
+    "status_error": "エラー",
+    "status_off": "オフ",
+    "dashboard": "ダッシュボード",
+    "track": "追跡",
+    "track_cursor_title": "このPCのCursorセッションからクォータを読み取ります — ブラウザーでのサインインは不要です",
+    "refresh_cursor_title": "Cursorにサインインしたあと、クォータを再読み込みします",
+    "copy_command": "コマンドをコピー",
+    "copied": "コピーしました",
+    "done_refresh": "完了、更新",
+    "docs": "Docs",
+    "untrack": "追跡をやめる",
+    "untrack_account_title": "このアカウントをクォータ一覧から外します",
+    "untrack_ok": "外す",
+    "untracked_toast": "追跡を停止しました",
+    "add_account_tab": "+ アカウント",
+    "add_account_title": "別のGoogleアカウントを追加",
+    "add_account_hint": "クォータ一覧にアカウントを追加するだけです。agyのアクティブなセッションは切り替えません。",
+    "untrack_provider_title": "クォータ一覧から外す（サインアウトはしません）",
+    "account_fallback": "アカウント",
+    "loading": "読み込み中…",
+    "updated_at": "更新 {time}",
+    "empty_hint": "追跡するか、サインイン / 保存で開始します",
+    "provider_added": "{kind} を追加しました",
+    "provider_untracked": "{name} の追跡を停止しました",
+    "reset_at": "リセット",
+    "request_failed": "リクエストに失敗しました",
+    "settings": "設定",
+    "settings_title": "設定",
+    "settings_language": "言語",
+    "settings_refresh_interval": "更新間隔（秒）",
+    "settings_provider_timeout": "プロバイダーのタイムアウト（秒）",
+    "settings_cache_ttl": "キャッシュの有効期間（秒）",
+    "settings_server": "サーバー（読み取り専用）",
+    "settings_bind_hint": "アドレスまたはポートを変えるにはプロセスを再起動してください。",
+    "settings_save": "保存",
+    "settings_close": "閉じる",
+    "settings_saved": "設定を保存しました",
+    "theme_to_dark": "ダーク",
+    "theme_to_light": "ライト",
+    "theme_to_dark_title": "ダークモードにする",
+    "theme_to_light_title": "ライトモードにする",
+    "t3_read": "読取 {time}",
+    "pct_left": "残り {n}%",
+    "antigravity_stale": "最終読み取り {time}。現在のクォータではありません。このアカウントの次の Antigravity ターンで更新されます。",
+    "antigravity_stale_reset": "最終読み取り {time} は無効です。リセット時刻を過ぎています。このアカウントの次の Antigravity ターンで再読み取りします。"
+  },
+  "providers": {
+    "cursor": {
+      "summary": "このPC上のCursorデスクトップセッション（ブラウザーでのサインインは不要）。",
+      "steps": [
+        "Cursorデスクトップアプリにサインインします。",
+        "追跡 — クォータはこのマシンのセッションから読み取られます。"
+      ]
+    },
+    "antigravity": {
+      "summary": "Google Antigravity (agy)。",
+      "steps": [
+        "Googleで接続 — ブラウザーで承認します。",
+        "コードをここに貼り付け → 続ける。"
+      ]
+    },
+    "claude-code": {
+      "summary": "Claude Code CLIのOAuth。",
+      "steps": [
+        "ターミナルで `claude` → `/login` を実行します。",
+        "更新。"
+      ]
+    },
+    "codex": {
+      "summary": "ChatGPT / Codex CLI。",
+      "steps": [
+        "`codex login` を実行します。",
+        "更新。"
+      ]
+    },
+    "opencode": {
+      "summary": "OpenCode GoのAPIキー。",
+      "steps": [
+        "OpenCodeでキーを取得します（または /connect）。",
+        "貼り付け → 保存。"
+      ]
+    },
+    "openrouter": {
+      "summary": "OpenRouterのAPIキー。",
+      "steps": [
+        "Keysページでキーを作成します。",
+        "貼り付け → 保存。"
+      ]
+    },
+    "t3": {
+      "summary": "この PC の T3 Code にサインイン済みのアカウント。",
+      "steps": [
+        "T3 Code は開いたままにしてください。クォータは T3 が更新します。",
+        "追跡 — このカードは T3 のローカルキャッシュを読みます。"
+      ]
+    }
+  },
+  "errors": {
+    "antigravity.no_active_session": "先にサインインを開始してください（アクティブなセッションがありません）。",
+    "antigravity.no_saved_token": "保存されたトークンがありません。もう一度サインインしてください。",
+    "antigravity.agy_missing": "Antigravity CLI (agy) が見つかりません。https://antigravity.google からインストールしてください。",
+    "antigravity.sign_in_cancelled": "サインインをキャンセルしました。",
+    "antigravity.spawn_failed": "agyを起動できませんでした: {detail}",
+    "antigravity.no_stdout": "agyにstdoutがありません",
+    "antigravity.no_stderr": "agyにstderrがありません",
+    "antigravity.no_stdin": "agyにstdinがありません",
+    "antigravity.closed_without_url": "agyはGoogleのリンクを出さずに終了しました。",
+    "antigravity.url_timeout": "agyがGoogleのサインインリンクを返しませんでした（タイムアウト）。",
+    "antigravity.code_empty": "コードが空です。",
+    "antigravity.session_closed": "サインインセッションは閉じられています。もう一度開始してください。",
+    "antigravity.code_write_failed": "コードを書き込めませんでした: {detail}",
+    "antigravity.flush_failed": "flush: {detail}",
+    "antigravity.wait_error": "agyの待機中にエラー: {detail}",
+    "antigravity.code_timeout": "agyがコードを処理している間にタイムアウトしました。新しいコードを取得してやり直してください。",
+    "antigravity.exit_failed": "agyのサインインに失敗しました（終了 {code}）。新しいコードのためにサインインをやり直してください。",
+    "antigravity.no_wincred": "agyは終了しましたが、WinCredセッションがありません。更新するか、もう一度サインインしてください。"
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "lang": "fr",
+  "fallback": "en",
+  "ui": {
+    "page_title": "quota-dash",
+    "lede": "Connectez-vous ou collez une clé depuis chaque carte. Pas de longue installation.",
+    "refresh": "Actualiser",
+    "cancel": "Annuler",
+    "confirm": "Confirmer",
+    "save": "Enregistrer",
+    "get_key": "Obtenir une clé",
+    "api_key_placeholder": "Clé API",
+    "saved_toast": "{name} enregistré",
+    "connect_google": "Se connecter avec Google",
+    "open_google": "Ouvrir Google",
+    "open_google_title": "Si le navigateur ne s’est pas ouvert ou si vous l’avez fermé",
+    "google_code_placeholder": "Code Google ou URL de callback",
+    "continue": "Continuer",
+    "paste_google_code_first": "Collez d’abord le code Google.",
+    "submitting_code": "Envoi du code…",
+    "google_approve_toast": "Validez dans Google — collez le code ici",
+    "antigravity_connected": "Antigravity connecté",
+    "sign_in_failed_retry": "Connexion échouée — essayez un nouveau code",
+    "status_ok": "OK",
+    "status_needs_login": "Connexion requise",
+    "status_stale": "Pas à jour",
+    "status_error": "Erreur",
+    "status_off": "désactivé",
+    "dashboard": "Tableau de bord",
+    "track": "Suivre",
+    "track_cursor_title": "Lire le quota depuis la session Cursor de ce PC — pas de connexion dans le navigateur",
+    "refresh_cursor_title": "Après la connexion à Cursor, recharger le quota",
+    "copy_command": "Copier la commande",
+    "copied": "Copié",
+    "done_refresh": "Terminé, actualiser",
+    "docs": "Docs",
+    "untrack": "Ne plus suivre",
+    "untrack_account_title": "Retirer ce compte de la liste des quotas",
+    "untrack_ok": "Retirer",
+    "untracked_toast": "Suivi arrêté",
+    "add_account_tab": "+ compte",
+    "add_account_title": "Ajouter un autre compte Google",
+    "add_account_hint": "Ajoute un compte à la liste des quotas seulement. Ne change pas la session active d’agy.",
+    "untrack_provider_title": "Retirer de la liste des quotas (sans déconnexion)",
+    "account_fallback": "compte",
+    "loading": "chargement…",
+    "updated_at": "mis à jour {time}",
+    "empty_hint": "Utilisez Suivre ou Connexion / Enregistrer pour commencer",
+    "provider_added": "{kind} ajouté",
+    "provider_untracked": "Suivi de {name} arrêté",
+    "reset_at": "réinitialisation",
+    "request_failed": "requête échouée",
+    "settings": "Réglages",
+    "settings_title": "Réglages",
+    "settings_language": "Langue",
+    "settings_refresh_interval": "Intervalle d’actualisation (s)",
+    "settings_provider_timeout": "Délai du fournisseur (s)",
+    "settings_cache_ttl": "Durée du cache (s)",
+    "settings_server": "Serveur (lecture seule)",
+    "settings_bind_hint": "Redémarrez le processus pour changer l’adresse ou le port.",
+    "settings_save": "Enregistrer",
+    "settings_close": "Fermer",
+    "settings_saved": "Réglages enregistrés",
+    "theme_to_dark": "Sombre",
+    "theme_to_light": "Clair",
+    "theme_to_dark_title": "Passer en mode sombre",
+    "theme_to_light_title": "Passer en mode clair",
+    "t3_read": "lu {time}",
+    "pct_left": "{n} % restant",
+    "antigravity_stale": "Dernière lecture {time}. Ce n’est pas le quota actuel. Le prochain tour Antigravity de ce compte le renouvelle.",
+    "antigravity_stale_reset": "Dernière lecture {time} dépassée : l’heure de réinitialisation est passée. Le prochain tour Antigravity de ce compte la relit."
+  },
+  "providers": {
+    "cursor": {
+      "summary": "Session Cursor sur ce PC (pas de connexion dans le navigateur).",
+      "steps": [
+        "Connectez-vous à l’application Cursor.",
+        "Suivre — le quota est lu depuis la session de cette machine."
+      ]
+    },
+    "antigravity": {
+      "summary": "Google Antigravity (agy).",
+      "steps": [
+        "Se connecter avec Google — validez dans le navigateur.",
+        "Collez le code ici → Continuer."
+      ]
+    },
+    "claude-code": {
+      "summary": "OAuth de Claude Code CLI.",
+      "steps": [
+        "Dans le terminal : `claude` → `/login`.",
+        "Actualiser."
+      ]
+    },
+    "codex": {
+      "summary": "CLI ChatGPT / Codex.",
+      "steps": [
+        "Lancez `codex login`.",
+        "Actualiser."
+      ]
+    },
+    "opencode": {
+      "summary": "Clé API OpenCode Go.",
+      "steps": [
+        "Obtenez une clé chez OpenCode (ou /connect).",
+        "Coller → Enregistrer."
+      ]
+    },
+    "openrouter": {
+      "summary": "Clé API OpenRouter.",
+      "steps": [
+        "Créez une clé sur la page Keys.",
+        "Coller → Enregistrer."
+      ]
+    },
+    "t3": {
+      "summary": "Comptes connectés à T3 Code sur ce PC.",
+      "steps": [
+        "Laissez T3 Code ouvert : c’est lui qui rafraîchit les quotas.",
+        "Suivre — cette carte lit le cache local de T3."
+      ]
+    }
+  },
+  "errors": {
+    "antigravity.no_active_session": "Lancez d’abord la connexion (aucune session active).",
+    "antigravity.no_saved_token": "Aucun jeton enregistré ; reconnectez-vous.",
+    "antigravity.agy_missing": "CLI Antigravity (agy) introuvable. Installez-la depuis https://antigravity.google.",
+    "antigravity.sign_in_cancelled": "Connexion annulée.",
+    "antigravity.spawn_failed": "impossible de démarrer agy : {detail}",
+    "antigravity.no_stdout": "agy n’a pas de stdout",
+    "antigravity.no_stderr": "agy n’a pas de stderr",
+    "antigravity.no_stdin": "agy n’a pas de stdin",
+    "antigravity.closed_without_url": "agy s’est arrêté sans lien Google.",
+    "antigravity.url_timeout": "agy n’a pas renvoyé de lien de connexion Google (délai dépassé).",
+    "antigravity.code_empty": "Le code est vide.",
+    "antigravity.session_closed": "Session de connexion fermée. Relancez la connexion.",
+    "antigravity.code_write_failed": "impossible d’écrire le code : {detail}",
+    "antigravity.flush_failed": "flush : {detail}",
+    "antigravity.wait_error": "erreur en attendant agy : {detail}",
+    "antigravity.code_timeout": "délai dépassé pendant le traitement du code par agy. Obtenez un nouveau code et réessayez.",
+    "antigravity.exit_failed": "connexion agy échouée (sortie {code}). Relancez la connexion pour un nouveau code.",
+    "antigravity.no_wincred": "agy s’est terminé mais il n’y a pas de session WinCred. Actualisez ou reconnectez-vous."
+  }
+}

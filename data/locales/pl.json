@@ -1,0 +1,144 @@
+{
+  "lang": "pl",
+  "fallback": "en",
+  "ui": {
+    "page_title": "quota-dash",
+    "lede": "Zaloguj się albo wklej klucz z każdej karty. Bez długiej instalacji.",
+    "refresh": "Odśwież",
+    "cancel": "Anuluj",
+    "confirm": "Potwierdź",
+    "save": "Zapisz",
+    "get_key": "Pobierz klucz",
+    "api_key_placeholder": "Klucz API",
+    "saved_toast": "Zapisano {name}",
+    "connect_google": "Połącz z Google",
+    "open_google": "Otwórz Google",
+    "open_google_title": "Jeśli przeglądarka się nie otworzyła albo ją zamknąłeś",
+    "google_code_placeholder": "Kod Google lub adres callback",
+    "continue": "Dalej",
+    "paste_google_code_first": "Najpierw wklej kod Google.",
+    "submitting_code": "Wysyłanie kodu…",
+    "google_approve_toast": "Zatwierdź w Google — wklej kod tutaj",
+    "antigravity_connected": "Antigravity połączone",
+    "sign_in_failed_retry": "Logowanie nie powiodło się — spróbuj nowego kodu",
+    "status_ok": "OK",
+    "status_needs_login": "Wymaga logowania",
+    "status_stale": "Nieaktualne",
+    "status_error": "Błąd",
+    "status_off": "wyłączone",
+    "dashboard": "Panel",
+    "track": "Śledź",
+    "track_cursor_title": "Odczytuje limit z sesji Cursor na tym komputerze — bez logowania w przeglądarce",
+    "refresh_cursor_title": "Po zalogowaniu do Cursor wczytaj limit ponownie",
+    "copy_command": "Kopiuj polecenie",
+    "copied": "Skopiowano",
+    "done_refresh": "Gotowe, odśwież",
+    "docs": "Docs",
+    "untrack": "Przestań śledzić",
+    "untrack_account_title": "Usuń to konto z listy limitów",
+    "untrack_ok": "Usuń",
+    "untracked_toast": "Śledzenie zatrzymane",
+    "add_account_tab": "+ konto",
+    "add_account_title": "Dodaj kolejne konto Google",
+    "add_account_hint": "Dodaje konto tylko do listy limitów. Nie zmienia aktywnej sesji agy.",
+    "untrack_provider_title": "Usuń z listy limitów (bez wylogowania)",
+    "account_fallback": "konto",
+    "loading": "wczytywanie…",
+    "updated_at": "zaktualizowano {time}",
+    "empty_hint": "Użyj Śledź albo Zaloguj / Zapisz, aby zacząć",
+    "provider_added": "Dodano {kind}",
+    "provider_untracked": "Zatrzymano śledzenie {name}",
+    "reset_at": "reset",
+    "request_failed": "żądanie nie powiodło się",
+    "settings": "Ustawienia",
+    "settings_title": "Ustawienia",
+    "settings_language": "Język",
+    "settings_refresh_interval": "Odstęp odświeżania (s)",
+    "settings_provider_timeout": "Limit czasu dostawcy (s)",
+    "settings_cache_ttl": "Czas pamięci podręcznej (s)",
+    "settings_server": "Serwer (tylko odczyt)",
+    "settings_bind_hint": "Uruchom proces ponownie, aby zmienić adres lub port.",
+    "settings_save": "Zapisz",
+    "settings_close": "Zamknij",
+    "settings_saved": "Ustawienia zapisane",
+    "theme_to_dark": "Ciemny",
+    "theme_to_light": "Jasny",
+    "theme_to_dark_title": "Przełącz na tryb ciemny",
+    "theme_to_light_title": "Przełącz na tryb jasny",
+    "t3_read": "odczyt {time}",
+    "pct_left": "{n}% zostało",
+    "antigravity_stale": "Ostatni odczyt {time}. To nie jest aktualny limit. Odnowi go następna tura Antigravity na tym koncie.",
+    "antigravity_stale_reset": "Ostatni odczyt {time} jest nieważny: minął czas resetu. Następna tura Antigravity na tym koncie odczyta go ponownie."
+  },
+  "providers": {
+    "cursor": {
+      "summary": "Sesja Cursor na tym komputerze (bez logowania w przeglądarce).",
+      "steps": [
+        "Zaloguj się w aplikacji Cursor.",
+        "Śledź — limit jest odczytywany z sesji tego komputera."
+      ]
+    },
+    "antigravity": {
+      "summary": "Google Antigravity (agy).",
+      "steps": [
+        "Połącz z Google — zatwierdź w przeglądarce.",
+        "Wklej kod tutaj → Dalej."
+      ]
+    },
+    "claude-code": {
+      "summary": "OAuth CLI Claude Code.",
+      "steps": [
+        "W terminalu uruchom `claude` → `/login`.",
+        "Odśwież."
+      ]
+    },
+    "codex": {
+      "summary": "CLI ChatGPT / Codex.",
+      "steps": [
+        "Uruchom `codex login`.",
+        "Odśwież."
+      ]
+    },
+    "opencode": {
+      "summary": "Klucz API OpenCode Go.",
+      "steps": [
+        "Pobierz klucz z OpenCode (lub /connect).",
+        "Wklej → Zapisz."
+      ]
+    },
+    "openrouter": {
+      "summary": "Klucz API OpenRouter.",
+      "steps": [
+        "Utwórz klucz na stronie Keys.",
+        "Wklej → Zapisz."
+      ]
+    },
+    "t3": {
+      "summary": "Konta zalogowane do T3 Code na tym komputerze.",
+      "steps": [
+        "Zostaw T3 Code otwarte — to ono odświeża limity.",
+        "Śledź — ta karta czyta lokalną pamięć T3."
+      ]
+    }
+  },
+  "errors": {
+    "antigravity.no_active_session": "Najpierw rozpocznij logowanie (brak aktywnej sesji).",
+    "antigravity.no_saved_token": "Brak zapisanego tokenu; zaloguj się ponownie.",
+    "antigravity.agy_missing": "Nie znaleziono CLI Antigravity (agy). Zainstaluj ze strony https://antigravity.google.",
+    "antigravity.sign_in_cancelled": "Logowanie anulowane.",
+    "antigravity.spawn_failed": "nie udało się uruchomić agy: {detail}",
+    "antigravity.no_stdout": "agy nie ma stdout",
+    "antigravity.no_stderr": "agy nie ma stderr",
+    "antigravity.no_stdin": "agy nie ma stdin",
+    "antigravity.closed_without_url": "agy zakończył pracę bez linku Google.",
+    "antigravity.url_timeout": "agy nie zwrócił linku logowania Google (przekroczono czas).",
+    "antigravity.code_empty": "Kod jest pusty.",
+    "antigravity.session_closed": "Sesja logowania zamknięta. Rozpocznij logowanie ponownie.",
+    "antigravity.code_write_failed": "nie udało się zapisać kodu: {detail}",
+    "antigravity.flush_failed": "flush: {detail}",
+    "antigravity.wait_error": "błąd podczas oczekiwania na agy: {detail}",
+    "antigravity.code_timeout": "przekroczono czas, gdy agy przetwarzał kod. Pobierz nowy kod i spróbuj ponownie.",
+    "antigravity.exit_failed": "logowanie agy nie powiodło się (wyjście {code}). Rozpocznij logowanie ponownie, aby dostać nowy kod.",
+    "antigravity.no_wincred": "agy zakończył pracę, ale nie ma sesji WinCred. Odśwież albo zaloguj się ponownie."
+  }
+}

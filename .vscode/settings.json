@@ -1,0 +1,14 @@
+{
+  "statusbar_command.commands": [
+    {
+      "text": "$(server) quota-dash",
+      "tooltip": "Çalışan sunucuyu kapat, yenisini başlat ve tarayıcıda aç",
+      "id": "quota-dash-serve",
+      "name": "Serve quota-dash",
+      "alignment": "right",
+      "priority": 100,
+      "command": "workbench.action.tasks.runTask",
+      "arguments": ["quota-dash: Serve"]
+    }
+  ]
+}

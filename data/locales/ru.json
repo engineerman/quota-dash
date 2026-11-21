@@ -1,0 +1,144 @@
+{
+  "lang": "ru",
+  "fallback": "en",
+  "ui": {
+    "page_title": "quota-dash",
+    "lede": "Войдите или вставьте ключ с каждой карточки. Долгая настройка не нужна.",
+    "refresh": "Обновить",
+    "cancel": "Отмена",
+    "confirm": "Подтвердить",
+    "save": "Сохранить",
+    "get_key": "Получить ключ",
+    "api_key_placeholder": "Ключ API",
+    "saved_toast": "{name} сохранён",
+    "connect_google": "Подключить Google",
+    "open_google": "Открыть Google",
+    "open_google_title": "Если браузер не открылся или вы его закрыли",
+    "google_code_placeholder": "Код Google или URL обратного вызова",
+    "continue": "Продолжить",
+    "paste_google_code_first": "Сначала вставьте код Google.",
+    "submitting_code": "Отправка кода…",
+    "google_approve_toast": "Подтвердите в Google — вставьте код сюда",
+    "antigravity_connected": "Antigravity подключён",
+    "sign_in_failed_retry": "Вход не удался — попробуйте новый код",
+    "status_ok": "OK",
+    "status_needs_login": "Нужен вход",
+    "status_stale": "Не актуально",
+    "status_error": "Ошибка",
+    "status_off": "выкл.",
+    "dashboard": "Панель",
+    "track": "Отслеживать",
+    "track_cursor_title": "Читает квоту из сессии Cursor на этом компьютере — без входа в браузере",
+    "refresh_cursor_title": "После входа в Cursor загрузите квоту снова",
+    "copy_command": "Копировать команду",
+    "copied": "Скопировано",
+    "done_refresh": "Готово, обновить",
+    "docs": "Docs",
+    "untrack": "Не отслеживать",
+    "untrack_account_title": "Убрать этот аккаунт из списка квот",
+    "untrack_ok": "Убрать",
+    "untracked_toast": "Отслеживание остановлено",
+    "add_account_tab": "+ аккаунт",
+    "add_account_title": "Добавить ещё один аккаунт Google",
+    "add_account_hint": "Только добавляет аккаунт в список квот. Не переключает активную сессию agy.",
+    "untrack_provider_title": "Убрать из списка квот (без выхода из аккаунта)",
+    "account_fallback": "аккаунт",
+    "loading": "загрузка…",
+    "updated_at": "обновлено {time}",
+    "empty_hint": "Нажмите «Отслеживать» или «Войти / Сохранить», чтобы начать",
+    "provider_added": "{kind} добавлен",
+    "provider_untracked": "Отслеживание {name} остановлено",
+    "reset_at": "сброс",
+    "request_failed": "запрос не удался",
+    "settings": "Настройки",
+    "settings_title": "Настройки",
+    "settings_language": "Язык",
+    "settings_refresh_interval": "Интервал обновления (сек)",
+    "settings_provider_timeout": "Таймаут провайдера (сек)",
+    "settings_cache_ttl": "Время кэша (сек)",
+    "settings_server": "Сервер (только чтение)",
+    "settings_bind_hint": "Перезапустите процесс, чтобы сменить адрес или порт.",
+    "settings_save": "Сохранить",
+    "settings_close": "Закрыть",
+    "settings_saved": "Настройки сохранены",
+    "theme_to_dark": "Тёмная",
+    "theme_to_light": "Светлая",
+    "theme_to_dark_title": "Включить тёмную тему",
+    "theme_to_light_title": "Включить светлую тему",
+    "t3_read": "прочитано {time}",
+    "pct_left": "{n}% осталось",
+    "antigravity_stale": "Последнее чтение {time}. Это не текущая квота. Её обновит следующий ход Antigravity на этом аккаунте.",
+    "antigravity_stale_reset": "Последнее чтение {time} устарело: время сброса прошло. Следующий ход Antigravity на этом аккаунте прочитает её снова."
+  },
+  "providers": {
+    "cursor": {
+      "summary": "Сессия Cursor на этом компьютере (без входа в браузере).",
+      "steps": [
+        "Войдите в приложение Cursor.",
+        "Отслеживать — квота читается из сессии этого компьютера."
+      ]
+    },
+    "antigravity": {
+      "summary": "Google Antigravity (agy).",
+      "steps": [
+        "Подключить Google — подтвердите в браузере.",
+        "Вставьте код сюда → Продолжить."
+      ]
+    },
+    "claude-code": {
+      "summary": "OAuth CLI Claude Code.",
+      "steps": [
+        "В терминале выполните `claude` → `/login`.",
+        "Обновить."
+      ]
+    },
+    "codex": {
+      "summary": "CLI ChatGPT / Codex.",
+      "steps": [
+        "Выполните `codex login`.",
+        "Обновить."
+      ]
+    },
+    "opencode": {
+      "summary": "Ключ API OpenCode Go.",
+      "steps": [
+        "Получите ключ в OpenCode (или /connect).",
+        "Вставить → Сохранить."
+      ]
+    },
+    "openrouter": {
+      "summary": "Ключ API OpenRouter.",
+      "steps": [
+        "Создайте ключ на странице Keys.",
+        "Вставить → Сохранить."
+      ]
+    },
+    "t3": {
+      "summary": "Аккаунты, уже вошедшие в T3 Code на этом ПК.",
+      "steps": [
+        "Оставьте T3 Code открытым — квоту обновляет он.",
+        "Отслеживать — карточка читает локальный кэш T3."
+      ]
+    }
+  },
+  "errors": {
+    "antigravity.no_active_session": "Сначала начните вход (нет активной сессии).",
+    "antigravity.no_saved_token": "Нет сохранённого токена; войдите снова.",
+    "antigravity.agy_missing": "CLI Antigravity (agy) не найдена. Установите с https://antigravity.google.",
+    "antigravity.sign_in_cancelled": "Вход отменён.",
+    "antigravity.spawn_failed": "не удалось запустить agy: {detail}",
+    "antigravity.no_stdout": "у agy нет stdout",
+    "antigravity.no_stderr": "у agy нет stderr",
+    "antigravity.no_stdin": "у agy нет stdin",
+    "antigravity.closed_without_url": "agy завершился без ссылки Google.",
+    "antigravity.url_timeout": "agy не вернул ссылку входа Google (таймаут).",
+    "antigravity.code_empty": "Код пуст.",
+    "antigravity.session_closed": "Сессия входа закрыта. Начните вход снова.",
+    "antigravity.code_write_failed": "не удалось записать код: {detail}",
+    "antigravity.flush_failed": "flush: {detail}",
+    "antigravity.wait_error": "ошибка при ожидании agy: {detail}",
+    "antigravity.code_timeout": "таймаут, пока agy обрабатывал код. Получите новый код и повторите.",
+    "antigravity.exit_failed": "вход agy не удался (код выхода {code}). Начните вход снова, чтобы получить новый код.",
+    "antigravity.no_wincred": "agy завершился, но сессии WinCred нет. Обновите или войдите снова."
+  }
+}

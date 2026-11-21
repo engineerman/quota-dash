@@ -1,0 +1,1679 @@
+<!DOCTYPE html>
+<html lang="en" id="html-root">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem("qb-theme"); } catch (e) {}
+      var mode = saved === "dark" || saved === "light"
+        ? saved
+        : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", mode);
+    })();
+  </script>
+  <title>quota-dash</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600;700&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #e8ebe6;
+      --ink: #1a1f1c;
+      --muted: #5c675f;
+      --card: #f4f6f2;
+      --line: #c5cdc4;
+      --accent: #c45c26;
+      --ok: #2f6b4f;
+      --warn: #a65d1a;
+      --bad: #8b2e1f;
+      --bad-hover: #6e2418;
+      --bar: #d5ddd2;
+      --fill: #2f6b4f;
+      --fill-hot: #c45c26;
+      --shadow: 0 12px 40px rgba(26, 31, 28, 0.08);
+      --setup: #f7f1ea;
+      --on-ink: #f4f6f2;
+      --paper: #fff;
+      --overlay: rgba(26, 31, 28, 0.45);
+      --alert-bg: #fbf7f4;
+      --alert-line: #d4b4a8;
+      --alert-line-strong: #d4a59a;
+      --wash-a: #dfe8d8;
+      --wash-b: #e5ddd4;
+      --wash-top: #eef1eb;
+      --wash-bottom: #dde3d9;
+      --toast-bg: #1a1f1c;
+      --toast-fg: #f4f6f2;
+      --grid-opacity: 0.35;
+    }
+
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #121614;
+      --ink: #e6eee8;
+      --muted: #9aab9f;
+      --card: #1c2420;
+      --line: #313b34;
+      --accent: #e3844e;
+      --ok: #8fceab;
+      --warn: #e3b06a;
+      --bad: #f0a090;
+      --bad-hover: #c47b6c;
+      --bar: #2c3630;
+      --fill: #6fbf93;
+      --fill-hot: #e3844e;
+      --shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+      --setup: #241c18;
+      --on-ink: #121614;
+      --paper: #141a17;
+      --overlay: rgba(0, 0, 0, 0.62);
+      --alert-bg: #2a211c;
+      --alert-line: #6d4a40;
+      --alert-line-strong: #8a5c50;
+      --wash-a: #1a2a22;
+      --wash-b: #2a221c;
+      --wash-top: #171c19;
+      --wash-bottom: #0e1210;
+      --toast-bg: #e6eee8;
+      --toast-fg: #121614;
+      --grid-opacity: 0.2;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "IBM Plex Sans", "Segoe UI", "Nirmala UI", "Yu Gothic UI", "Meiryo", "Microsoft YaHei", "Malgun Gothic", "Noto Sans", "Noto Sans Arabic", "Noto Sans Devanagari", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse 80% 50% at 10% -10%, var(--wash-a) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 40% at 100% 0%, var(--wash-b) 0%, transparent 50%),
+        linear-gradient(180deg, var(--wash-top) 0%, var(--bg) 40%, var(--wash-bottom) 100%);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: var(--grid-opacity);
+      background-image: linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(180deg, #000 0%, transparent 85%);
+    }
+
+    main {
+      position: relative;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .brand {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 0.5rem;
+    }
+
+    h1 {
+      font-size: clamp(1.85rem, 3.5vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin: 0 0 0.35rem;
+      line-height: 1.1;
+    }
+
+    .lede {
+      margin: 0;
+      max-width: 36rem;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.45;
+    }
+
+    .toolbar {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      margin-inline-start: auto;
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: var(--overlay);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+      z-index: 30;
+    }
+
+    .overlay[hidden] {
+      display: none !important;
+    }
+
+    .settings-panel {
+      width: min(420px, 100%);
+      max-height: min(90vh, 640px);
+      overflow: auto;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      box-shadow: var(--shadow);
+      padding: 1.25rem 1.35rem 1.1rem;
+    }
+
+    .settings-panel h2 {
+      margin: 0 0 1rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .settings-panel label {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin: 0.75rem 0 0.35rem;
+    }
+
+    .settings-panel input,
+    .settings-panel select {
+      width: 100%;
+      font: inherit;
+      padding: 0.45rem 0.55rem;
+      border: 1px solid var(--line);
+      border-radius: 2px;
+      background: var(--paper);
+      color: var(--ink);
+    }
+
+    .settings-panel .server-readonly {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin: 0.25rem 0 0;
+      line-height: 1.45;
+    }
+
+    .settings-hint {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin: 0.5rem 0 0;
+      line-height: 1.4;
+    }
+
+    .settings-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.5rem;
+      margin-top: 1.15rem;
+      padding-top: 0.85rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .meta {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 1.25rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--toast-bg);
+      color: var(--toast-fg);
+      padding: 0.55rem 1rem;
+      font-size: 0.85rem;
+      border-radius: 2px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      z-index: 20;
+    }
+
+    .toast.show {
+      opacity: 1;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 2px;
+      padding: 1.15rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      animation: rise 0.55s ease both;
+    }
+
+    .card.ok {
+      border-color: var(--ok);
+    }
+
+    .card.stale {
+      border-color: var(--warn);
+    }
+
+    .card.needs_login,
+    .card.error {
+      border-color: var(--alert-line);
+      background: var(--alert-bg);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+
+    .title-row {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .logo {
+      width: 28px;
+      height: 28px;
+      flex: 0 0 28px;
+      object-fit: contain;
+      border-radius: 4px;
+      padding: 3px;
+      background: #f4f6f2;
+    }
+
+    .logo[src*="openrouter"] {
+      background: #1a1f1c;
+    }
+
+    .card h2 {
+      margin: 0;
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .kind,
+    .summary {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .kind {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    .pill {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.02em;
+      padding: 0.2rem 0.45rem;
+      border: 1px solid var(--line);
+      white-space: nowrap;
+      /* no text-transform — Turkish locale turns English "i" into "İ" */
+    }
+
+    .pill.ok {
+      color: var(--ok);
+      border-color: var(--ok);
+    }
+
+    .pill.stale {
+      color: var(--warn);
+      border-color: var(--warn);
+    }
+
+    .pill.needs_login,
+    .pill.error {
+      color: var(--bad);
+      border-color: var(--alert-line-strong);
+    }
+
+    .pill.off {
+      color: var(--muted);
+    }
+
+    .account {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.4rem 0.55rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .account .acct-text {
+      min-width: 0;
+    }
+
+    a.dash {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.28rem;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+    }
+
+    a.dash:hover {
+      color: var(--ink);
+      border-bottom-color: var(--ink);
+    }
+
+    a.dash svg {
+      width: 12px;
+      height: 12px;
+      flex: 0 0 12px;
+    }
+
+    .title-row a.dash {
+      margin-inline-start: 0.15rem;
+      padding: 0.15rem;
+      border-bottom: none;
+      color: var(--muted);
+    }
+
+    .title-row a.dash:hover {
+      color: var(--accent);
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin: 0.1rem 0 0.35rem;
+    }
+
+    .tab {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+      font-weight: 500;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--muted);
+      padding: 0.28rem 0.55rem;
+      border-radius: 2px;
+      cursor: pointer;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .tab:hover {
+      border-color: var(--ink);
+      color: var(--ink);
+    }
+
+    .tab.active {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: var(--on-ink);
+    }
+
+    .tab.add {
+      border-style: dashed;
+      color: var(--accent);
+      border-color: var(--alert-line);
+    }
+
+    .tab-panel {
+      display: none;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .tab-panel.active {
+      display: flex;
+    }
+
+    .acct-hint {
+      margin: 0;
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    .badge-live {
+      display: inline-block;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--ok);
+      border: 1px solid var(--ok);
+      padding: 0.1rem 0.35rem;
+      margin-inline-start: 0.35rem;
+      vertical-align: middle;
+    }
+
+    .confirm-inline {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    button.danger {
+      background: var(--bad);
+      border-color: var(--bad);
+      color: var(--on-ink);
+    }
+
+    button.danger:hover {
+      background: var(--bad-hover);
+      border-color: var(--bad-hover);
+    }
+
+    .windows {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .win {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .win-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+    }
+
+    .pct {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+    }
+
+    .track {
+      height: 8px;
+      background: var(--bar);
+      overflow: hidden;
+    }
+
+    .fill {
+      height: 100%;
+      background: var(--fill);
+      width: 0%;
+      transition: width 0.45s ease;
+    }
+
+    .fill.hot {
+      background: var(--fill-hot);
+    }
+
+    .msg {
+      font-size: 0.8rem;
+      color: var(--warn);
+      line-height: 1.35;
+    }
+
+    .t3-checked {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.68rem;
+      color: var(--muted);
+    }
+
+    .t3-accounts {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .t3-acct {
+      display: flex;
+      flex-direction: column;
+      gap: 0.28rem;
+    }
+
+    .t3-acct-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.6rem;
+      font-size: 0.82rem;
+    }
+
+    .t3-acct-row strong {
+      font-weight: 600;
+    }
+
+    .t3-user {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    .t3-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.28rem;
+    }
+
+    .t3-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      max-width: 100%;
+      border: 1px solid var(--line);
+      padding: 0.1rem 0.35rem;
+      font-size: 0.68rem;
+      line-height: 1.3;
+    }
+
+    .t3-chip-label {
+      color: var(--muted);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 9.5rem;
+    }
+
+    .t3-chip-pct {
+      font-family: "IBM Plex Mono", monospace;
+      white-space: nowrap;
+    }
+
+    .t3-meter {
+      width: 2rem;
+      height: 4px;
+      background: var(--bar);
+      flex: 0 0 2rem;
+    }
+
+    .t3-meter-fill {
+      display: block;
+      height: 100%;
+      width: 0%;
+      background: var(--fill);
+    }
+
+    .t3-meter-fill.hot {
+      background: var(--fill-hot);
+    }
+
+    .setup {
+      margin-top: 0.15rem;
+      padding: 0.75rem 0.8rem;
+      background: var(--paper);
+      border: 1px dashed var(--alert-line);
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .setup .hint {
+      margin: 0;
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .keyrow,
+    .coderow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    input::placeholder {
+      color: var(--muted);
+      opacity: 1;
+    }
+
+    .keyrow input,
+    .coderow input {
+      flex: 1 1 140px;
+      min-width: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      padding: 0.4rem 0.5rem;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      color: var(--ink);
+    }
+
+    .actions,
+    .setup-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .actions {
+      margin-top: auto;
+      padding-top: 0.25rem;
+    }
+
+    button,
+    a.btn {
+      font-family: "IBM Plex Sans", "Segoe UI", "Nirmala UI", "Yu Gothic UI", "Meiryo", "Microsoft YaHei", "Malgun Gothic", "Noto Sans", "Noto Sans Arabic", "Noto Sans Devanagari", sans-serif;
+      font-weight: 600;
+      font-size: 0.84rem;
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: var(--on-ink);
+      padding: 0.4rem 0.75rem;
+      border-radius: 2px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    button:hover,
+    a.btn:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    button:disabled {
+      opacity: 0.55;
+      cursor: wait;
+    }
+
+    button.ghost,
+    a.btn.ghost {
+      background: transparent;
+      color: var(--ink);
+    }
+
+    button.ghost:hover,
+    a.btn.ghost:hover {
+      background: var(--ink);
+      color: var(--on-ink);
+    }
+
+    .err {
+      margin-top: 1.25rem;
+      color: var(--bad);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.85rem;
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <header>
+      <div>
+        <p class="brand">quota-dash</p>
+        <h1 id="page-title">quota-dash</h1>
+        <p class="lede" id="lede">Sign in or paste a key from each card. No long setup.</p>
+      </div>
+      <div class="toolbar">
+        <span id="meta" class="meta"></span>
+        <button type="button" id="theme-toggle" class="ghost" aria-pressed="false">Dark</button>
+        <button type="button" id="settings-open" class="ghost">Settings</button>
+        <button type="button" id="refresh">Refresh</button>
+      </div>
+    </header>
+
+    <div id="grid" class="grid" aria-live="polite"></div>
+    <p id="err" class="err" hidden></p>
+  </main>
+  <div id="settings-dialog" class="overlay" hidden role="dialog" aria-modal="true" aria-labelledby="settings-title">
+    <div class="settings-panel">
+      <h2 id="settings-title">Ayarlar</h2>
+      <label id="settings-lang-label" for="settings-lang">Dil</label>
+      <select id="settings-lang" name="lang"></select>
+      <label id="settings-refresh-label" for="settings-refresh">Yenileme aralığı (sn)</label>
+      <input id="settings-refresh" type="number" min="5" step="1" inputmode="numeric" />
+      <label id="settings-timeout-label" for="settings-timeout">Sağlayıcı zaman aşımı (sn)</label>
+      <input id="settings-timeout" type="number" min="5" step="1" inputmode="numeric" />
+      <label id="settings-cache-label" for="settings-cache">Önbellek süresi (sn)</label>
+      <input id="settings-cache" type="number" min="60" step="1" inputmode="numeric" />
+      <label id="settings-server-label">Sunucu (salt okunur)</label>
+      <p id="settings-server" class="server-readonly"></p>
+      <p id="settings-hint-bind" class="settings-hint">Adres ve port değişikliği için süreci yeniden başlatın.</p>
+      <div class="settings-actions">
+        <button type="button" id="settings-close" class="ghost">Kapat</button>
+        <button type="button" id="settings-save">Kaydet</button>
+      </div>
+    </div>
+  </div>
+  <div id="toast" class="toast" role="status"></div>
+
+  <script src="/static/ui-fallback-en.js" defer></script>
+  <script src="/static/i18n-boot.js" defer></script>
+  <script defer>
+    const t = (key, vars) => window.qbI18n?.t(key, vars) ?? key;
+    const grid = document.getElementById("grid");
+    const errEl = document.getElementById("err");
+    const meta = document.getElementById("meta");
+    const toastEl = document.getElementById("toast");
+    let toastTimer = null;
+    const agyPending = new Map(); // kind -> { auth_url }
+    let agyAccounts = []; // { email, active }
+
+    function toast(msg) {
+      toastEl.textContent = msg;
+      toastEl.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toastEl.classList.remove("show"), 1800);
+    }
+
+    function showError(msg) {
+      errEl.hidden = !msg;
+      errEl.textContent = msg || "";
+    }
+
+    /** Replace a trigger button with inline Vazgeç / confirm; restores on cancel. */
+    function confirmInline(triggerBtn, { okLabel, onConfirm }) {
+      const parent = triggerBtn.parentNode;
+      if (!parent) return;
+      const wrap = document.createElement("span");
+      wrap.className = "confirm-inline";
+      const cancel = document.createElement("button");
+      cancel.type = "button";
+      cancel.className = "ghost";
+      cancel.textContent = t("cancel");
+      const ok = document.createElement("button");
+      ok.type = "button";
+      ok.className = "danger";
+      ok.textContent = okLabel || t("confirm");
+      const restore = () => {
+        wrap.replaceWith(triggerBtn);
+      };
+      cancel.addEventListener("click", restore);
+      ok.addEventListener("click", async () => {
+        ok.disabled = true;
+        cancel.disabled = true;
+        try {
+          await onConfirm();
+        } catch (e) {
+          showError(String(e.message || e));
+          ok.disabled = false;
+          cancel.disabled = false;
+        }
+      });
+      wrap.appendChild(cancel);
+      wrap.appendChild(ok);
+      triggerBtn.replaceWith(wrap);
+    }
+
+    function isAgyLive(email) {
+      if (!email) return false;
+      return agyAccounts.some(
+        (a) => a.active && String(a.email).toLowerCase() === String(email).toLowerCase()
+      );
+    }
+
+    async function api(path, opts) {
+      const headers = Object.assign(
+        {},
+        (opts && opts.headers) || {},
+        { "Accept-Language": window.qbI18n?.acceptLanguage?.() || "en" }
+      );
+      const res = await fetch(
+        path,
+        Object.assign({ cache: "no-store" }, opts || {}, { headers })
+      );
+      const text = await res.text();
+      let data = null;
+      try { data = text ? JSON.parse(text) : null; } catch (_) { }
+      if (!res.ok) throw new Error((data && data.error) || res.statusText || t("request_failed"));
+      return data;
+    }
+
+    function fmtPct(n) {
+      if (n == null || Number.isNaN(n)) return "—";
+      return (Math.round(n * 10) / 10).toFixed(1) + "%";
+    }
+
+    function staleNote(snap) {
+      const when = new Date(snap.fetched_at);
+      const time = Number.isNaN(when.getTime())
+        ? ""
+        : when.toLocaleString(undefined, {
+            month: "short", day: "numeric", hour: "2-digit", minute: "2-digit"
+          });
+      const resets = (snap.windows || [])
+        .map((w) => w.resets_at)
+        .filter(Boolean)
+        .map((iso) => new Date(iso).getTime())
+        .filter((n) => !Number.isNaN(n));
+      const resetPassed = resets.length > 0 && resets.every((n) => n <= Date.now());
+      return t(resetPassed ? "antigravity_stale_reset" : "antigravity_stale", { time });
+    }
+
+    function fmtReset(iso) {
+      if (!iso) return "";
+      try {
+        const d = new Date(iso);
+        return t("reset_at") + " " + d.toLocaleString(undefined, {
+          month: "short", day: "numeric", hour: "2-digit", minute: "2-digit"
+        });
+      } catch (_) { return ""; }
+    }
+
+    function snapsForKind(report, kind) {
+      const k = String(kind).toLowerCase();
+      return (report.providers || []).filter((p) => String(p.kind).toLowerCase() === k);
+    }
+
+    function renderWindows(snap) {
+      const wrap = document.createElement("div");
+      wrap.className = "windows";
+      const wins = snap.windows || [];
+      if (!wins.length) {
+        if (snap.message && snap.status === "ok") {
+          const m = document.createElement("div");
+          m.className = "msg";
+          m.textContent = snap.message;
+          wrap.appendChild(m);
+        }
+        return wrap;
+      }
+      for (const w of wins) {
+        const pct = Number(w.used_percent) || 0;
+        const row = document.createElement("div");
+        row.className = "win";
+        row.innerHTML =
+          "<div class=\"win-row\"><strong></strong><span class=\"pct\"></span></div>" +
+          "<div class=\"track\"><div class=\"fill\"></div></div>" +
+          "<div class=\"win-row\"><span class=\"detail\"></span><span class=\"reset\"></span></div>";
+        row.querySelector("strong").textContent = w.label || w.key;
+        row.querySelector(".pct").textContent = fmtPct(pct);
+        const fill = row.querySelector(".fill");
+        fill.style.width = Math.min(100, Math.max(0, pct)) + "%";
+        if (pct >= 80) fill.classList.add("hot");
+        row.querySelector(".detail").textContent = w.detail || "";
+        row.querySelector(".reset").textContent = fmtReset(w.resets_at);
+        wrap.appendChild(row);
+      }
+      if (snap.message) {
+        const m = document.createElement("div");
+        m.className = "msg";
+        m.textContent = snap.message;
+        wrap.appendChild(m);
+      }
+      return wrap;
+    }
+
+    function setupHint(entry) {
+      const p = document.createElement("p");
+      p.className = "hint";
+      p.textContent = (entry.steps || []).slice(0, 2).join(" ");
+      return p;
+    }
+
+    function renderApiKeySetup(entry) {
+      const box = document.createElement("div");
+      box.className = "setup";
+      box.appendChild(setupHint(entry));
+      const row = document.createElement("div");
+      row.className = "keyrow";
+      const input = document.createElement("input");
+      // text (not password) — Chrome must not offer to save this as a login password.
+      input.type = "text";
+      input.autocomplete = "off";
+      input.setAttribute("autocapitalize", "off");
+      input.setAttribute("autocorrect", "off");
+      input.setAttribute("spellcheck", "false");
+      input.setAttribute("data-lpignore", "true");
+      input.setAttribute("data-1p-ignore", "true");
+      input.setAttribute("data-form-type", "other");
+      input.name = "quota_api_token";
+      input.placeholder = t("api_key_placeholder");
+      input.style.fontFamily = '"IBM Plex Mono", monospace';
+      const save = document.createElement("button");
+      save.type = "button";
+      save.textContent = t("save");
+      const slot = entry.secret_slot || entry.kind;
+      save.addEventListener("click", async () => {
+        try {
+          await api("/api/secrets/" + encodeURIComponent(slot), {
+            method: "PUT",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({ key: input.value }),
+          });
+          toast(t("saved_toast", { name: entry.display_name }));
+          input.value = "";
+          await load();
+        } catch (e) {
+          showError(String(e.message || e));
+        }
+      });
+      row.appendChild(input);
+      row.appendChild(save);
+      box.appendChild(row);
+      const links = document.createElement("div");
+      links.className = "setup-actions";
+      if (entry.docs_url) {
+        const a = document.createElement("a");
+        a.className = "btn ghost";
+        a.href = entry.docs_url;
+        a.target = "_blank";
+        a.rel = "noopener";
+        a.textContent = t("get_key");
+        links.appendChild(a);
+      }
+      box.appendChild(links);
+      return box;
+    }
+
+    async function startAgyLogin(entry) {
+      const data = await api("/api/auth/antigravity/start", { method: "POST" });
+      agyPending.set(entry.kind, { auth_url: data.auth_url || null });
+      return data;
+    }
+
+    function openAuthOnce(url) {
+      if (!url) return;
+      // Named target reuses the same tab if the user clicks again.
+      window.open(url, "quota-dash-agy-google");
+    }
+
+    function renderOauthSetup(entry) {
+      const box = document.createElement("div");
+      box.className = "setup";
+      box.appendChild(setupHint(entry));
+
+      const pending = agyPending.get(entry.kind);
+      const actions = document.createElement("div");
+      actions.className = "setup-actions";
+
+      // One button only. Start never window.open's — agy already opens Google on
+      // Windows (ignores BROWSER). A second open from the UI was the double-tab bug.
+      const primary = document.createElement("button");
+      primary.type = "button";
+      if (!pending) {
+        primary.textContent = t("connect_google");
+        primary.addEventListener("click", async () => {
+          primary.disabled = true;
+          try {
+            await startAgyLogin(entry);
+            toast(t("google_approve_toast"));
+            await load();
+          } catch (e) {
+            showError(String(e.message || e));
+            primary.disabled = false;
+          }
+        });
+      } else {
+        primary.textContent = t("open_google");
+        primary.title = t("open_google_title");
+        primary.addEventListener("click", () => openAuthOnce(pending.auth_url));
+      }
+      actions.appendChild(primary);
+      box.appendChild(actions);
+
+      if (!pending) return box;
+
+      const row = document.createElement("div");
+      row.className = "coderow";
+      const input = document.createElement("input");
+      input.type = "text";
+      input.autocomplete = "off";
+      input.placeholder = t("google_code_placeholder");
+      input.spellcheck = false;
+      const go = document.createElement("button");
+      go.type = "button";
+      go.textContent = t("continue");
+      const submit = async () => {
+        const code = (input.value || "").trim();
+        if (!code) {
+          showError(t("paste_google_code_first"));
+          return;
+        }
+        go.disabled = true;
+        primary.disabled = true;
+        toast(t("submitting_code"));
+        try {
+          await api("/api/auth/antigravity/code", {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({ code }),
+          });
+          agyPending.delete(entry.kind);
+          toast(t("antigravity_connected"));
+          await load();
+        } catch (e) {
+          const msg = String(e.message || e);
+          showError(msg);
+          toast(t("sign_in_failed_retry"));
+          if (/session|oturum|active|aktif|sign-in|giriş/i.test(msg)) {
+            agyPending.delete(entry.kind);
+          }
+          go.disabled = false;
+          primary.disabled = false;
+          await load();
+        }
+      };
+      go.addEventListener("click", submit);
+      input.addEventListener("keydown", (ev) => {
+        if (ev.key === "Enter") submit();
+      });
+      row.appendChild(input);
+      row.appendChild(go);
+      box.appendChild(row);
+
+      return box;
+    }
+
+    function statusLabel(st) {
+      if (!st || st === "ok") return t("status_ok");
+      if (st === "needs_login") return t("status_needs_login");
+      if (st === "stale") return t("status_stale");
+      if (st === "error") return t("status_error");
+      if (st === "off") return t("status_off");
+      return String(st).replace(/_/g, " ");
+    }
+
+    /** Compact external dashboard link (icon + optional label). */
+    function dashLink(entry, withLabel) {
+      if (!entry || !entry.dashboard_url) return null;
+      const a = document.createElement("a");
+      a.className = "dash";
+      a.href = entry.dashboard_url;
+      a.target = "_blank";
+      a.rel = "noopener";
+      a.title = t("dashboard");
+      a.setAttribute("aria-label", t("dashboard"));
+      a.innerHTML =
+        '<svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5">' +
+        '<rect x="2" y="2" width="5" height="5" rx="0.5"/>' +
+        '<rect x="9" y="2" width="5" height="5" rx="0.5"/>' +
+        '<rect x="2" y="9" width="5" height="5" rx="0.5"/>' +
+        '<rect x="9" y="9" width="5" height="5" rx="0.5"/></svg>';
+      if (withLabel) {
+        const span = document.createElement("span");
+        span.textContent = t("dashboard");
+        a.appendChild(span);
+      }
+      return a;
+    }
+
+    function renderAccountRow(entry, snap) {
+      const row = document.createElement("div");
+      row.className = "account";
+      const text = document.createElement("span");
+      text.className = "acct-text";
+      const bits = [];
+      if (snap && snap.account) bits.push(snap.account);
+      if (snap && snap.plan) bits.push(snap.plan);
+      text.textContent = bits.join(" · ") || (snap && snap.id) || "—";
+      row.appendChild(text);
+      const d = dashLink(entry, true);
+      if (d) row.appendChild(d);
+      return row;
+    }
+
+    function renderAppSetup(entry, enabled) {
+      const box = document.createElement("div");
+      box.className = "setup";
+      box.appendChild(setupHint(entry));
+      const actions = document.createElement("div");
+      actions.className = "setup-actions";
+      if (!enabled) {
+        const add = document.createElement("button");
+        add.type = "button";
+        add.textContent = t("track");
+        add.title = t("track_cursor_title");
+        add.addEventListener("click", () => addProvider(entry.kind));
+        actions.appendChild(add);
+      } else {
+        const done = document.createElement("button");
+        done.type = "button";
+        done.textContent = t("refresh");
+        done.title = t("refresh_cursor_title");
+        done.addEventListener("click", () => load().catch((e) => showError(String(e.message || e))));
+        actions.appendChild(done);
+      }
+      box.appendChild(actions);
+      return box;
+    }
+
+    function renderCliSetup(entry, enabled) {
+      const box = document.createElement("div");
+      box.className = "setup";
+      box.appendChild(setupHint(entry));
+      const actions = document.createElement("div");
+      actions.className = "setup-actions";
+      if (!enabled) {
+        const add = document.createElement("button");
+        add.type = "button";
+        add.textContent = t("track");
+        add.addEventListener("click", () => addProvider(entry.kind));
+        actions.appendChild(add);
+      }
+      if (entry.command) {
+        const copy = document.createElement("button");
+        copy.type = "button";
+        copy.className = enabled ? "" : "ghost";
+        copy.textContent = t("copy_command");
+        copy.addEventListener("click", async () => {
+          try {
+            await navigator.clipboard.writeText(entry.command);
+            toast(t("copied"));
+          } catch (_) {
+            toast(entry.command);
+          }
+        });
+        actions.appendChild(copy);
+      }
+      if (enabled) {
+        const done = document.createElement("button");
+        done.type = "button";
+        done.textContent = t("done_refresh");
+        done.addEventListener("click", () => load().catch((e) => showError(String(e.message || e))));
+        actions.appendChild(done);
+      }
+      if (entry.docs_url) {
+        const a = document.createElement("a");
+        a.className = "btn ghost";
+        a.href = entry.docs_url;
+        a.target = "_blank";
+        a.rel = "noopener";
+        a.textContent = t("docs");
+        actions.appendChild(a);
+      }
+      box.appendChild(actions);
+      return box;
+    }
+
+    function renderSetup(entry, snap, enabled) {
+      const on = !!enabled;
+      const box =
+        entry.setup === "oauth_code" ? renderOauthSetup(entry) :
+          entry.setup === "api_key" || entry.accepts_api_key ? renderApiKeySetup(entry) :
+            entry.setup === "cli" ? renderCliSetup(entry, on) :
+              renderAppSetup(entry, on);
+      if (snap && snap.message) {
+        const m = document.createElement("div");
+        m.className = "msg";
+        m.textContent = snap.message;
+        box.insertBefore(m, box.firstChild);
+      }
+      return box;
+    }
+
+    function shortEmail(email) {
+      if (!email) return t("account_fallback");
+      const at = email.indexOf("@");
+      if (at <= 0) return email;
+      const local = email.slice(0, at);
+      const domain = email.slice(at + 1);
+      if (local.length <= 10) return local;
+      return local.slice(0, 8) + "…@" + domain.split(".")[0];
+    }
+
+    function selectTab(panels, idx) {
+      panels.forEach((p, j) => {
+        p.tab.classList.toggle("active", j === idx);
+        p.panel.classList.toggle("active", j === idx);
+      });
+    }
+
+    function renderAccountTabs(entry, snaps) {
+      const wrap = document.createElement("div");
+      const tabs = document.createElement("div");
+      tabs.className = "tabs";
+      tabs.setAttribute("role", "tablist");
+      const panels = [];
+      const pending = agyPending.get(entry.kind);
+      const openAdd = !!pending;
+
+      let startIdx = snaps.findIndex((s) => isAgyLive(s.account));
+      if (openAdd) startIdx = snaps.length; // add tab index
+      else if (startIdx < 0) startIdx = 0;
+
+      snaps.forEach((snap, i) => {
+        const tab = document.createElement("button");
+        tab.type = "button";
+        tab.className = "tab" + (!openAdd && i === startIdx ? " active" : "");
+        tab.setAttribute("role", "tab");
+        tab.textContent = shortEmail(snap.account) || snap.id;
+        tab.title = snap.account || snap.id;
+        tabs.appendChild(tab);
+
+        const panel = document.createElement("div");
+        panel.className = "tab-panel" + (!openAdd && i === startIdx ? " active" : "");
+        panel.setAttribute("role", "tabpanel");
+
+        panel.appendChild(renderAccountRow(entry, snap));
+
+        if (snap.status === "ok" || snap.status === "stale") {
+          const view = snap.status === "stale"
+            ? Object.assign({}, snap, { message: staleNote(snap) })
+            : snap;
+          panel.appendChild(renderWindows(view));
+        }
+        else if (snap.message) {
+          const m = document.createElement("div");
+          m.className = "msg";
+          m.textContent = snap.message;
+          panel.appendChild(m);
+        }
+
+        if (snap.account) {
+          const row = document.createElement("div");
+          row.className = "setup-actions";
+          const rm = document.createElement("button");
+          rm.className = "ghost";
+          rm.type = "button";
+          rm.textContent = t("untrack");
+          rm.title = t("untrack_account_title");
+          rm.addEventListener("click", () => {
+            confirmInline(rm, {
+              okLabel: t("untrack_ok"),
+              onConfirm: async () => {
+                await api(
+                  "/api/providers/antigravity/accounts/" + encodeURIComponent(snap.account),
+                  { method: "DELETE" }
+                );
+                toast(t("untracked_toast"));
+                await load();
+              },
+            });
+          });
+          row.appendChild(rm);
+          panel.appendChild(row);
+        }
+
+        panels.push({ tab, panel });
+        wrap.appendChild(panel);
+      });
+
+      // Dedicated "+ hesap" tab (login / paste lives here — not under another account).
+      const addTab = document.createElement("button");
+      addTab.type = "button";
+      addTab.className = "tab add" + (openAdd || snaps.length === 0 ? " active" : "");
+      addTab.textContent = t("add_account_tab");
+      addTab.title = t("add_account_title");
+      tabs.appendChild(addTab);
+
+      const addPanel = document.createElement("div");
+      addPanel.className = "tab-panel" + (openAdd || snaps.length === 0 ? " active" : "");
+      addPanel.setAttribute("role", "tabpanel");
+      const addHint = document.createElement("p");
+      addHint.className = "acct-hint";
+      addHint.textContent = t("add_account_hint");
+      addPanel.appendChild(addHint);
+
+      // Same oauth UI as setup (single Google open — no duplicate Linki aç).
+      addPanel.appendChild(renderOauthSetup(entry));
+
+      const addIdx = panels.length;
+      panels.push({ tab: addTab, panel: addPanel });
+      wrap.appendChild(addPanel);
+
+      panels.forEach(({ tab }, i) => {
+        tab.addEventListener("click", () => selectTab(panels, i));
+      });
+
+      wrap.insertBefore(tabs, wrap.firstChild);
+      if (openAdd) selectTab(panels, addIdx);
+      return wrap;
+    }
+
+    function leftPercent(used) {
+      const n = Number(used);
+      if (Number.isNaN(n)) return 0;
+      return Math.round(Math.min(100, Math.max(0, 100 - n)));
+    }
+
+    function renderT3Body(snaps) {
+      const wrap = document.createElement("div");
+      wrap.className = "t3-accounts";
+      const withWindows = snaps.filter((s) => (s.windows || []).length);
+      if (!withWindows.length) {
+        const msg = snaps.map((s) => s.message).find(Boolean);
+        if (msg) {
+          const m = document.createElement("div");
+          m.className = "msg";
+          m.textContent = msg;
+          wrap.appendChild(m);
+        }
+        return wrap;
+      }
+      const oldest = withWindows.reduce((min, s) => {
+        const t = new Date(s.fetched_at).getTime();
+        return Number.isNaN(t) ? min : Math.min(min, t);
+      }, Infinity);
+      if (Number.isFinite(oldest)) {
+        const stamp = document.createElement("div");
+        stamp.className = "t3-checked";
+        stamp.textContent = t("t3_read", {
+          time: new Date(oldest).toLocaleString(undefined, {
+            month: "short", day: "numeric", hour: "2-digit", minute: "2-digit"
+          }),
+        });
+        wrap.appendChild(stamp);
+      }
+      for (const snap of withWindows) {
+        const block = document.createElement("div");
+        block.className = "t3-acct";
+        const row = document.createElement("div");
+        row.className = "t3-acct-row";
+        const name = document.createElement("strong");
+        name.textContent = snap.display_name || snap.id;
+        const user = document.createElement("span");
+        user.className = "t3-user";
+        user.textContent = snap.account || snap.id;
+        user.title = [snap.account, snap.id].filter(Boolean).join(" · ");
+        row.appendChild(name);
+        row.appendChild(user);
+        block.appendChild(row);
+        const strip = document.createElement("div");
+        strip.className = "t3-strip";
+        for (const w of snap.windows) {
+          const left = leftPercent(w.used_percent);
+          const chip = document.createElement("div");
+          chip.className = "t3-chip";
+          const label = document.createElement("span");
+          label.className = "t3-chip-label";
+          label.textContent = w.label || w.key;
+          const pct = document.createElement("span");
+          pct.className = "t3-chip-pct";
+          pct.textContent = t("pct_left", { n: left });
+          const meter = document.createElement("span");
+          meter.className = "t3-meter";
+          const fill = document.createElement("span");
+          fill.className = "t3-meter-fill" + (left <= 20 ? " hot" : "");
+          fill.style.width = left + "%";
+          meter.appendChild(fill);
+          const reset = fmtReset(w.resets_at);
+          chip.title = [w.label || w.key, t("pct_left", { n: left }), reset].filter(Boolean).join(" · ");
+          chip.appendChild(label);
+          chip.appendChild(pct);
+          chip.appendChild(meter);
+          strip.appendChild(chip);
+        }
+        block.appendChild(strip);
+        wrap.appendChild(block);
+      }
+      return wrap;
+    }
+
+    function renderCard(entry, on, snaps) {
+      const card = document.createElement("article");
+      const primary = snaps[0];
+      const t3Rows = on && entry.kind === "t3" && snaps.some((s) => (s.windows || []).length);
+      const st = !on
+        ? "off"
+        : entry.kind === "t3"
+          ? (t3Rows ? "ok" : (primary && primary.status) || "ok")
+          : (primary && primary.status) || "ok";
+      card.className = "card " + st;
+
+      const top = document.createElement("div");
+      top.className = "card-top";
+      const left = document.createElement("div");
+      const titleRow = document.createElement("div");
+      titleRow.className = "title-row";
+      if (entry.logo) {
+        const img = document.createElement("img");
+        img.className = "logo";
+        img.src = entry.logo;
+        img.alt = "";
+        img.width = 28;
+        img.height = 28;
+        img.decoding = "async";
+        titleRow.appendChild(img);
+      }
+      const h2 = document.createElement("h2");
+      h2.textContent = entry.display_name;
+      titleRow.appendChild(h2);
+      left.appendChild(titleRow);
+      const kind = document.createElement("div");
+      kind.className = "kind";
+      kind.textContent = entry.kind;
+      left.appendChild(kind);
+      if (!t3Rows) {
+        const summary = document.createElement("div");
+        summary.className = "summary";
+        summary.textContent = entry.summary || "";
+        left.appendChild(summary);
+      }
+      const pill = document.createElement("span");
+      pill.className = "pill " + st;
+      pill.lang = window.qbI18n?.lang || "en";
+      pill.textContent = !on ? t("status_off") : statusLabel(st);
+      top.appendChild(left);
+      top.appendChild(pill);
+      card.appendChild(top);
+
+      if (on && entry.kind === "t3") {
+        card.appendChild(renderT3Body(snaps));
+      } else if (on && entry.setup === "oauth_code") {
+        card.appendChild(renderAccountTabs(entry, snaps));
+      } else if (on && primary && primary.status === "ok") {
+        card.appendChild(renderAccountRow(entry, primary));
+        card.appendChild(renderWindows(primary));
+      } else if (on || entry.accepts_api_key || entry.setup === "oauth_code") {
+        // No account line yet — dashboard icon beside provider name.
+        const titleDash = dashLink(entry, false);
+        if (titleDash) titleRow.appendChild(titleDash);
+        card.appendChild(renderSetup(entry, on ? primary : null, on));
+      } else {
+        const titleDash = dashLink(entry, false);
+        if (titleDash) titleRow.appendChild(titleDash);
+        card.appendChild(renderSetup(entry, null, false));
+      }
+
+      const actions = document.createElement("div");
+      actions.className = "actions";
+      // Antigravity: unfollow is per-tab only — no card-wide "Takibi kapat".
+      if (on && entry.setup !== "oauth_code") {
+        const rem = document.createElement("button");
+        rem.className = "ghost";
+        rem.type = "button";
+        rem.textContent = t("untrack");
+        rem.title = t("untrack_provider_title");
+        rem.addEventListener("click", () => {
+          confirmInline(rem, {
+            okLabel: t("untrack_ok"),
+            onConfirm: () => removeProvider(entry.kind, entry.display_name),
+          });
+        });
+        actions.appendChild(rem);
+      } else if (!on && !(entry.accepts_api_key || entry.setup === "oauth_code" || entry.setup === "app" || entry.setup === "cli")) {
+        const add = document.createElement("button");
+        add.type = "button";
+        add.textContent = t("track");
+        add.addEventListener("click", () => addProvider(entry.kind));
+        actions.appendChild(add);
+      }
+      card.appendChild(actions);
+      return card;
+    }
+
+    async function load() {
+      showError("");
+      meta.textContent = t("loading");
+      const [catalog, providers] = await Promise.all([
+        api("/api/providers/catalog?lang=" + encodeURIComponent(window.qbI18n?.lang || "en")),
+        api("/api/providers"),
+      ]);
+      try {
+        const st = await api("/api/auth/antigravity/status");
+        if (st.status === "awaiting_code" && st.auth_url) {
+          agyPending.set("antigravity", { auth_url: st.auth_url });
+        }
+      } catch (_) { }
+      try {
+        const acc = await api("/api/providers/antigravity/accounts");
+        agyAccounts = acc.accounts || [];
+      } catch (_) {
+        agyAccounts = [];
+      }
+
+      const enabled = new Set((providers.enabled || []).map((k) => String(k).toLowerCase()));
+      let report = { providers: [], generated_at: null };
+      if (enabled.size) report = await api("/api/quotas");
+      grid.innerHTML = "";
+      for (const entry of catalog) {
+        const on = enabled.has(String(entry.kind).toLowerCase());
+        const snaps = on ? snapsForKind(report, entry.kind) : [];
+        grid.appendChild(renderCard(entry, on, snaps));
+      }
+      meta.textContent = report.generated_at
+        ? t("updated_at", { time: new Date(report.generated_at).toLocaleTimeString() })
+        : enabled.size ? "" : t("empty_hint");
+    }
+
+    async function addProvider(kind) {
+      try {
+        await api("/api/providers", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ kind }),
+        });
+        toast(t("provider_added", { kind }));
+        await load();
+      } catch (e) {
+        showError(String(e.message || e));
+      }
+    }
+
+    async function removeProvider(kind, displayName) {
+      const name = displayName || kind;
+      await api("/api/providers/" + encodeURIComponent(kind), { method: "DELETE" });
+      toast(t("provider_untracked", { name }));
+      await load();
+    }
+
+    document.getElementById("refresh").addEventListener("click", () => {
+      load().catch((e) => showError(String(e.message || e)));
+    });
+
+    window.__qbOnLocale = () => load().catch((e) => showError(String(e.message || e)));
+
+    const settingsDlg = document.getElementById("settings-dialog");
+    const settingsLang = document.getElementById("settings-lang");
+    let settingsSnapshot = null;
+
+    async function openSettings() {
+      settingsSnapshot = await api("/api/settings");
+      settingsLang.innerHTML = "";
+      for (const L of settingsSnapshot.languages || []) {
+        const opt = document.createElement("option");
+        opt.value = L.code;
+        opt.textContent = L.label || L.code;
+        settingsLang.appendChild(opt);
+      }
+      settingsLang.value = window.qbI18n?.lang || "en";
+      const c = settingsSnapshot.config || {};
+      document.getElementById("settings-refresh").value = c.refresh_interval_secs ?? 60;
+      document.getElementById("settings-timeout").value = c.provider_timeout_secs ?? 20;
+      document.getElementById("settings-cache").value = c.cache_ttl_secs ?? 1800;
+      const s = settingsSnapshot.server || {};
+      document.getElementById("settings-server").textContent =
+        (s.bind || "?") + ":" + (s.port ?? "?") + "\n" + (s.config_path || "");
+      settingsDlg.hidden = false;
+      if (window.qbI18n?.ready) {
+        const h = document.getElementById("settings-title");
+        if (h) h.textContent = t("settings_title");
+      }
+    }
+
+    function closeSettings() {
+      settingsDlg.hidden = true;
+    }
+
+    document.getElementById("settings-open").addEventListener("click", () => {
+      openSettings().catch((e) => showError(String(e.message || e)));
+    });
+    document.getElementById("settings-close").addEventListener("click", closeSettings);
+    settingsDlg.addEventListener("click", (ev) => {
+      if (ev.target === settingsDlg) closeSettings();
+    });
+    document.getElementById("settings-save").addEventListener("click", async () => {
+      const lang = settingsLang.value;
+      const body = {
+        refresh_interval_secs: Number(document.getElementById("settings-refresh").value) || undefined,
+        provider_timeout_secs: Number(document.getElementById("settings-timeout").value) || undefined,
+        cache_ttl_secs: Number(document.getElementById("settings-cache").value) || undefined,
+      };
+      try {
+        await api("/api/settings", {
+          method: "PUT",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(body),
+        });
+        const prevLang = window.qbI18n?.lang;
+        if (lang && window.qbI18n?.setLang) {
+          await window.qbI18n.setLang(lang, {
+            persist: true,
+            silent: lang === prevLang,
+          });
+        }
+        if (lang === prevLang && typeof window.__qbOnLocale === "function") {
+          await window.__qbOnLocale(lang);
+        }
+        toast(t("settings_saved"));
+        closeSettings();
+      } catch (e) {
+        showError(String(e.message || e));
+      }
+    });
+
+    (async function boot() {
+      if (window.qbI18n?.init) await window.qbI18n.init();
+      else await load().catch((e) => showError(String(e.message || e)));
+    })().catch((e) => showError(String(e.message || e)));
+  </script>
+</body>
+
+</html>

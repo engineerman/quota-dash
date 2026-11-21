@@ -1,0 +1,144 @@
+{
+  "lang": "vi",
+  "fallback": "en",
+  "ui": {
+    "page_title": "quota-dash",
+    "lede": "Đăng nhập hoặc dán khóa từ mỗi thẻ. Không cần thiết lập dài.",
+    "refresh": "Làm mới",
+    "cancel": "Hủy",
+    "confirm": "Xác nhận",
+    "save": "Lưu",
+    "get_key": "Lấy khóa",
+    "api_key_placeholder": "Khóa API",
+    "saved_toast": "Đã lưu {name}",
+    "connect_google": "Kết nối bằng Google",
+    "open_google": "Mở Google",
+    "open_google_title": "Nếu trình duyệt không mở hoặc bạn đã đóng nó",
+    "google_code_placeholder": "Mã Google hoặc URL callback",
+    "continue": "Tiếp tục",
+    "paste_google_code_first": "Hãy dán mã Google trước.",
+    "submitting_code": "Đang gửi mã…",
+    "google_approve_toast": "Phê duyệt trong Google — dán mã vào đây",
+    "antigravity_connected": "Đã kết nối Antigravity",
+    "sign_in_failed_retry": "Đăng nhập thất bại — hãy thử mã mới",
+    "status_ok": "OK",
+    "status_needs_login": "Cần đăng nhập",
+    "status_stale": "Không mới",
+    "status_error": "Lỗi",
+    "status_off": "tắt",
+    "dashboard": "Bảng điều khiển",
+    "track": "Theo dõi",
+    "track_cursor_title": "Đọc hạn mức từ phiên Cursor trên máy này — không cần đăng nhập trình duyệt",
+    "refresh_cursor_title": "Sau khi đăng nhập Cursor, tải lại hạn mức",
+    "copy_command": "Sao chép lệnh",
+    "copied": "Đã sao chép",
+    "done_refresh": "Xong, làm mới",
+    "docs": "Docs",
+    "untrack": "Ngừng theo dõi",
+    "untrack_account_title": "Gỡ tài khoản này khỏi danh sách hạn mức",
+    "untrack_ok": "Gỡ",
+    "untracked_toast": "Đã ngừng theo dõi",
+    "add_account_tab": "+ tài khoản",
+    "add_account_title": "Thêm tài khoản Google khác",
+    "add_account_hint": "Chỉ thêm tài khoản vào danh sách hạn mức. Không đổi phiên agy đang hoạt động.",
+    "untrack_provider_title": "Gỡ khỏi danh sách hạn mức (không đăng xuất)",
+    "account_fallback": "tài khoản",
+    "loading": "đang tải…",
+    "updated_at": "cập nhật {time}",
+    "empty_hint": "Dùng Theo dõi hoặc Đăng nhập / Lưu để bắt đầu",
+    "provider_added": "Đã thêm {kind}",
+    "provider_untracked": "Đã ngừng theo dõi {name}",
+    "reset_at": "đặt lại",
+    "request_failed": "yêu cầu thất bại",
+    "settings": "Cài đặt",
+    "settings_title": "Cài đặt",
+    "settings_language": "Ngôn ngữ",
+    "settings_refresh_interval": "Khoảng làm mới (giây)",
+    "settings_provider_timeout": "Thời gian chờ nhà cung cấp (giây)",
+    "settings_cache_ttl": "Thời gian bộ nhớ đệm (giây)",
+    "settings_server": "Máy chủ (chỉ đọc)",
+    "settings_bind_hint": "Khởi động lại tiến trình để đổi địa chỉ hoặc cổng.",
+    "settings_save": "Lưu",
+    "settings_close": "Đóng",
+    "settings_saved": "Đã lưu cài đặt",
+    "theme_to_dark": "Tối",
+    "theme_to_light": "Sáng",
+    "theme_to_dark_title": "Chuyển sang chế độ tối",
+    "theme_to_light_title": "Chuyển sang chế độ sáng",
+    "t3_read": "đã đọc {time}",
+    "pct_left": "còn {n}%",
+    "antigravity_stale": "Lần đọc cuối {time}. Đây không phải hạn mức hiện tại. Lượt Antigravity kế tiếp của tài khoản này sẽ làm mới.",
+    "antigravity_stale_reset": "Lần đọc cuối {time} đã hết hiệu lực: thời điểm đặt lại đã qua. Lượt Antigravity kế tiếp của tài khoản này sẽ đọc lại."
+  },
+  "providers": {
+    "cursor": {
+      "summary": "Phiên Cursor trên máy này (không đăng nhập trình duyệt).",
+      "steps": [
+        "Đăng nhập ứng dụng Cursor trên máy tính.",
+        "Theo dõi — hạn mức được đọc từ phiên của máy này."
+      ]
+    },
+    "antigravity": {
+      "summary": "Google Antigravity (agy).",
+      "steps": [
+        "Kết nối bằng Google — phê duyệt trong trình duyệt.",
+        "Dán mã vào đây → Tiếp tục."
+      ]
+    },
+    "claude-code": {
+      "summary": "OAuth CLI Claude Code.",
+      "steps": [
+        "Trong terminal chạy `claude` → `/login`.",
+        "Làm mới."
+      ]
+    },
+    "codex": {
+      "summary": "CLI ChatGPT / Codex.",
+      "steps": [
+        "Chạy `codex login`.",
+        "Làm mới."
+      ]
+    },
+    "opencode": {
+      "summary": "Khóa API OpenCode Go.",
+      "steps": [
+        "Lấy khóa từ OpenCode (hoặc /connect).",
+        "Dán → Lưu."
+      ]
+    },
+    "openrouter": {
+      "summary": "Khóa API OpenRouter.",
+      "steps": [
+        "Tạo khóa trên trang Keys.",
+        "Dán → Lưu."
+      ]
+    },
+    "t3": {
+      "summary": "Các tài khoản đã đăng nhập T3 Code trên máy này.",
+      "steps": [
+        "Để T3 Code mở; hạn mức do T3 làm mới.",
+        "Theo dõi — thẻ này đọc bộ nhớ đệm cục bộ của T3."
+      ]
+    }
+  },
+  "errors": {
+    "antigravity.no_active_session": "Hãy bắt đầu đăng nhập trước (không có phiên đang hoạt động).",
+    "antigravity.no_saved_token": "Không có token đã lưu; hãy đăng nhập lại.",
+    "antigravity.agy_missing": "Không tìm thấy CLI Antigravity (agy). Cài từ https://antigravity.google.",
+    "antigravity.sign_in_cancelled": "Đã hủy đăng nhập.",
+    "antigravity.spawn_failed": "không khởi động được agy: {detail}",
+    "antigravity.no_stdout": "agy không có stdout",
+    "antigravity.no_stderr": "agy không có stderr",
+    "antigravity.no_stdin": "agy không có stdin",
+    "antigravity.closed_without_url": "agy thoát mà không có liên kết Google.",
+    "antigravity.url_timeout": "agy không trả liên kết đăng nhập Google (hết thời gian).",
+    "antigravity.code_empty": "Mã trống.",
+    "antigravity.session_closed": "Phiên đăng nhập đã đóng. Hãy bắt đầu lại.",
+    "antigravity.code_write_failed": "không ghi được mã: {detail}",
+    "antigravity.flush_failed": "flush: {detail}",
+    "antigravity.wait_error": "lỗi khi chờ agy: {detail}",
+    "antigravity.code_timeout": "hết thời gian khi agy xử lý mã. Lấy mã mới và thử lại.",
+    "antigravity.exit_failed": "đăng nhập agy thất bại (thoát {code}). Bắt đầu đăng nhập lại để lấy mã mới.",
+    "antigravity.no_wincred": "agy đã kết thúc nhưng không có phiên WinCred. Hãy làm mới hoặc đăng nhập lại."
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "lang": "id",
+  "fallback": "en",
+  "ui": {
+    "page_title": "quota-dash",
+    "lede": "Masuk atau tempel kunci dari setiap kartu. Tanpa penyiapan yang panjang.",
+    "refresh": "Segarkan",
+    "cancel": "Batal",
+    "confirm": "Konfirmasi",
+    "save": "Simpan",
+    "get_key": "Ambil kunci",
+    "api_key_placeholder": "Kunci API",
+    "saved_toast": "{name} disimpan",
+    "connect_google": "Hubungkan dengan Google",
+    "open_google": "Buka Google",
+    "open_google_title": "Jika peramban tidak terbuka atau Anda menutupnya",
+    "google_code_placeholder": "Kode Google atau URL callback",
+    "continue": "Lanjut",
+    "paste_google_code_first": "Tempel kode Google terlebih dahulu.",
+    "submitting_code": "Mengirim kode…",
+    "google_approve_toast": "Setujui di Google — tempel kode di sini",
+    "antigravity_connected": "Antigravity terhubung",
+    "sign_in_failed_retry": "Masuk gagal — coba kode baru",
+    "status_ok": "OK",
+    "status_needs_login": "Perlu masuk",
+    "status_stale": "Bukan terkini",
+    "status_error": "Kesalahan",
+    "status_off": "mati",
+    "dashboard": "Dasbor",
+    "track": "Lacak",
+    "track_cursor_title": "Membaca kuota dari sesi Cursor di PC ini — tanpa masuk lewat peramban",
+    "refresh_cursor_title": "Setelah masuk ke Cursor, muat ulang kuota",
+    "copy_command": "Salin perintah",
+    "copied": "Disalin",
+    "done_refresh": "Selesai, segarkan",
+    "docs": "Docs",
+    "untrack": "Berhenti melacak",
+    "untrack_account_title": "Hapus akun ini dari daftar kuota",
+    "untrack_ok": "Hapus",
+    "untracked_toast": "Pelacakan dihentikan",
+    "add_account_tab": "+ akun",
+    "add_account_title": "Tambah akun Google lain",
+    "add_account_hint": "Hanya menambahkan akun ke daftar kuota. Tidak mengganti sesi aktif agy.",
+    "untrack_provider_title": "Hapus dari daftar kuota (tidak keluar dari akun)",
+    "account_fallback": "akun",
+    "loading": "memuat…",
+    "updated_at": "diperbarui {time}",
+    "empty_hint": "Gunakan Lacak atau Masuk / Simpan untuk mulai",
+    "provider_added": "{kind} ditambahkan",
+    "provider_untracked": "Pelacakan {name} dihentikan",
+    "reset_at": "diatur ulang",
+    "request_failed": "permintaan gagal",
+    "settings": "Pengaturan",
+    "settings_title": "Pengaturan",
+    "settings_language": "Bahasa",
+    "settings_refresh_interval": "Interval penyegaran (dtk)",
+    "settings_provider_timeout": "Batas waktu penyedia (dtk)",
+    "settings_cache_ttl": "Durasi cache (dtk)",
+    "settings_server": "Server (hanya baca)",
+    "settings_bind_hint": "Mulai ulang proses untuk mengubah alamat atau port.",
+    "settings_save": "Simpan",
+    "settings_close": "Tutup",
+    "settings_saved": "Pengaturan disimpan",
+    "theme_to_dark": "Gelap",
+    "theme_to_light": "Terang",
+    "theme_to_dark_title": "Beralih ke mode gelap",
+    "theme_to_light_title": "Beralih ke mode terang",
+    "t3_read": "dibaca {time}",
+    "pct_left": "{n}% tersisa",
+    "antigravity_stale": "Pembacaan terakhir {time}. Ini bukan kuota saat ini. Giliran Antigravity berikutnya pada akun ini memperbaruinya.",
+    "antigravity_stale_reset": "Pembacaan terakhir {time} sudah lewat: waktu reset terlampaui. Giliran Antigravity berikutnya pada akun ini membacanya lagi."
+  },
+  "providers": {
+    "cursor": {
+      "summary": "Sesi desktop Cursor di PC ini (tanpa masuk lewat peramban).",
+      "steps": [
+        "Masuk ke aplikasi desktop Cursor.",
+        "Lacak — kuota dibaca dari sesi mesin ini."
+      ]
+    },
+    "antigravity": {
+      "summary": "Google Antigravity (agy).",
+      "steps": [
+        "Hubungkan dengan Google — setujui di peramban.",
+        "Tempel kode di sini → Lanjut."
+      ]
+    },
+    "claude-code": {
+      "summary": "OAuth CLI Claude Code.",
+      "steps": [
+        "Di terminal jalankan `claude` → `/login`.",
+        "Segarkan."
+      ]
+    },
+    "codex": {
+      "summary": "CLI ChatGPT / Codex.",
+      "steps": [
+        "Jalankan `codex login`.",
+        "Segarkan."
+      ]
+    },
+    "opencode": {
+      "summary": "Kunci API OpenCode Go.",
+      "steps": [
+        "Ambil kunci dari OpenCode (atau /connect).",
+        "Tempel → Simpan."
+      ]
+    },
+    "openrouter": {
+      "summary": "Kunci API OpenRouter.",
+      "steps": [
+        "Buat kunci di halaman Keys.",
+        "Tempel → Simpan."
+      ]
+    },
+    "t3": {
+      "summary": "Akun yang sudah masuk ke T3 Code di PC ini.",
+      "steps": [
+        "Biarkan T3 Code terbuka; kuota diperbarui olehnya.",
+        "Lacak — kartu ini membaca cache lokal T3."
+      ]
+    }
+  },
+  "errors": {
+    "antigravity.no_active_session": "Mulai masuk terlebih dahulu (tidak ada sesi aktif).",
+    "antigravity.no_saved_token": "Tidak ada token tersimpan; masuk lagi.",
+    "antigravity.agy_missing": "CLI Antigravity (agy) tidak ditemukan. Pasang dari https://antigravity.google.",
+    "antigravity.sign_in_cancelled": "Masuk dibatalkan.",
+    "antigravity.spawn_failed": "gagal memulai agy: {detail}",
+    "antigravity.no_stdout": "agy tidak punya stdout",
+    "antigravity.no_stderr": "agy tidak punya stderr",
+    "antigravity.no_stdin": "agy tidak punya stdin",
+    "antigravity.closed_without_url": "agy berhenti tanpa tautan Google.",
+    "antigravity.url_timeout": "agy tidak mengembalikan tautan masuk Google (waktu habis).",
+    "antigravity.code_empty": "Kode kosong.",
+    "antigravity.session_closed": "Sesi masuk ditutup. Mulai masuk lagi.",
+    "antigravity.code_write_failed": "tidak dapat menulis kode: {detail}",
+    "antigravity.flush_failed": "flush: {detail}",
+    "antigravity.wait_error": "kesalahan saat menunggu agy: {detail}",
+    "antigravity.code_timeout": "waktu habis saat agy memproses kode. Ambil kode baru dan coba lagi.",
+    "antigravity.exit_failed": "masuk agy gagal (keluar {code}). Mulai masuk lagi untuk kode baru.",
+    "antigravity.no_wincred": "agy selesai tetapi tidak ada sesi WinCred. Segarkan atau masuk lagi."
+  }
+}

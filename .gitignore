@@ -1,0 +1,13 @@
+/target/
+/target-i18n/
+
+# Local config. Copy config.example.toml to quota-dash.toml.
+# These files can hold API keys — do not commit them.
+/quota-dash.toml
+
+# Local captures and scratch. Snapshots can contain account emails.
+/runs/
+.scratch-*
+
+*.pdb
+**/*.rs.bk

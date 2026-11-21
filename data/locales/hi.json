@@ -1,0 +1,144 @@
+{
+  "lang": "hi",
+  "fallback": "en",
+  "ui": {
+    "page_title": "quota-dash",
+    "lede": "हर कार्ड से साइन इन करें या कुंजी चिपकाएँ। लंबा सेटअप नहीं।",
+    "refresh": "रीफ़्रेश",
+    "cancel": "रद्द करें",
+    "confirm": "पुष्टि करें",
+    "save": "सहेजें",
+    "get_key": "कुंजी लें",
+    "api_key_placeholder": "API कुंजी",
+    "saved_toast": "{name} सहेजा गया",
+    "connect_google": "Google से जोड़ें",
+    "open_google": "Google खोलें",
+    "open_google_title": "अगर ब्राउज़र नहीं खुला या आपने उसे बंद कर दिया",
+    "google_code_placeholder": "Google कोड या कॉलबैक URL",
+    "continue": "जारी रखें",
+    "paste_google_code_first": "पहले Google कोड चिपकाएँ।",
+    "submitting_code": "कोड भेजा जा रहा है…",
+    "google_approve_toast": "Google में स्वीकृति दें — कोड यहाँ चिपकाएँ",
+    "antigravity_connected": "Antigravity जुड़ गया",
+    "sign_in_failed_retry": "साइन-इन असफल — नया कोड आज़माएँ",
+    "status_ok": "ठीक",
+    "status_needs_login": "लॉगिन ज़रूरी",
+    "status_stale": "पुराना",
+    "status_error": "त्रुटि",
+    "status_off": "बंद",
+    "dashboard": "डैशबोर्ड",
+    "track": "ट्रैक करें",
+    "track_cursor_title": "इस PC के Cursor सत्र से कोटा पढ़ता है — ब्राउज़र में साइन-इन नहीं",
+    "refresh_cursor_title": "Cursor में साइन इन करने के बाद कोटा फिर लोड करें",
+    "copy_command": "कमांड कॉपी करें",
+    "copied": "कॉपी हो गया",
+    "done_refresh": "हो गया, रीफ़्रेश",
+    "docs": "Docs",
+    "untrack": "ट्रैक बंद करें",
+    "untrack_account_title": "इस खाते को कोटा सूची से हटाएँ",
+    "untrack_ok": "हटाएँ",
+    "untracked_toast": "ट्रैकिंग बंद",
+    "add_account_tab": "+ खाता",
+    "add_account_title": "एक और Google खाता जोड़ें",
+    "add_account_hint": "केवल कोटा सूची में खाता जोड़ता है। agy का सक्रिय सत्र नहीं बदलता।",
+    "untrack_provider_title": "कोटा सूची से हटाएँ (साइन आउट नहीं होता)",
+    "account_fallback": "खाता",
+    "loading": "लोड हो रहा है…",
+    "updated_at": "अपडेट {time}",
+    "empty_hint": "शुरू करने के लिए ट्रैक करें या साइन इन / सहेजें",
+    "provider_added": "{kind} जोड़ा गया",
+    "provider_untracked": "{name} की ट्रैकिंग बंद",
+    "reset_at": "रीसेट",
+    "request_failed": "अनुरोध असफल",
+    "settings": "सेटिंग्स",
+    "settings_title": "सेटिंग्स",
+    "settings_language": "भाषा",
+    "settings_refresh_interval": "रीफ़्रेश अंतराल (सेकंड)",
+    "settings_provider_timeout": "प्रदाता समय-सीमा (सेकंड)",
+    "settings_cache_ttl": "कैश अवधि (सेकंड)",
+    "settings_server": "सर्वर (केवल पढ़ने योग्य)",
+    "settings_bind_hint": "पता या पोर्ट बदलने के लिए प्रक्रिया फिर शुरू करें।",
+    "settings_save": "सहेजें",
+    "settings_close": "बंद करें",
+    "settings_saved": "सेटिंग्स सहेजी गईं",
+    "theme_to_dark": "गहरा",
+    "theme_to_light": "हल्का",
+    "theme_to_dark_title": "गहरे मोड पर जाएँ",
+    "theme_to_light_title": "हल्के मोड पर जाएँ",
+    "t3_read": "पढ़ा {time}",
+    "pct_left": "{n}% शेष",
+    "antigravity_stale": "आखिरी रीडिंग {time}. यह मौजूदा कोटा नहीं है. इस खाते का अगला Antigravity टर्न इसे नया करता है.",
+    "antigravity_stale_reset": "आखिरी रीडिंग {time} अब मान्य नहीं: रीसेट समय बीत चुका है. इस खाते का अगला Antigravity टर्न इसे फिर पढ़ता है."
+  },
+  "providers": {
+    "cursor": {
+      "summary": "इस PC पर Cursor डेस्कटॉप सत्र (ब्राउज़र में साइन-इन नहीं)।",
+      "steps": [
+        "Cursor डेस्कटॉप ऐप में साइन इन करें।",
+        "ट्रैक करें — कोटा इस मशीन के सत्र से पढ़ा जाता है।"
+      ]
+    },
+    "antigravity": {
+      "summary": "Google Antigravity (agy)।",
+      "steps": [
+        "Google से जोड़ें — ब्राउज़र में स्वीकृति दें।",
+        "कोड यहाँ चिपकाएँ → जारी रखें।"
+      ]
+    },
+    "claude-code": {
+      "summary": "Claude Code CLI OAuth।",
+      "steps": [
+        "टर्मिनल में `claude` → `/login` चलाएँ।",
+        "रीफ़्रेश।"
+      ]
+    },
+    "codex": {
+      "summary": "ChatGPT / Codex CLI।",
+      "steps": [
+        "`codex login` चलाएँ।",
+        "रीफ़्रेश।"
+      ]
+    },
+    "opencode": {
+      "summary": "OpenCode Go API कुंजी।",
+      "steps": [
+        "OpenCode से कुंजी लें (या /connect)।",
+        "चिपकाएँ → सहेजें।"
+      ]
+    },
+    "openrouter": {
+      "summary": "OpenRouter API कुंजी।",
+      "steps": [
+        "Keys पेज पर कुंजी बनाएँ।",
+        "चिपकाएँ → सहेजें।"
+      ]
+    },
+    "t3": {
+      "summary": "इस PC पर T3 Code में साइन-इन खाते.",
+      "steps": [
+        "T3 Code खुला रखें; कोटा वही रिफ्रेश करता है.",
+        "ट्रैक — यह कार्ड T3 का स्थानीय कैश पढ़ता है."
+      ]
+    }
+  },
+  "errors": {
+    "antigravity.no_active_session": "पहले साइन-इन शुरू करें (कोई सक्रिय सत्र नहीं)।",
+    "antigravity.no_saved_token": "कोई सहेजा टोकन नहीं; फिर साइन इन करें।",
+    "antigravity.agy_missing": "Antigravity CLI (agy) नहीं मिली। https://antigravity.google से इंस्टॉल करें।",
+    "antigravity.sign_in_cancelled": "साइन-इन रद्द हुआ।",
+    "antigravity.spawn_failed": "agy शुरू नहीं हो सका: {detail}",
+    "antigravity.no_stdout": "agy में stdout नहीं है",
+    "antigravity.no_stderr": "agy में stderr नहीं है",
+    "antigravity.no_stdin": "agy में stdin नहीं है",
+    "antigravity.closed_without_url": "agy Google लिंक दिए बिना बंद हो गया।",
+    "antigravity.url_timeout": "agy ने Google साइन-इन लिंक नहीं दिया (समय समाप्त)।",
+    "antigravity.code_empty": "कोड खाली है।",
+    "antigravity.session_closed": "साइन-इन सत्र बंद है। साइन-इन फिर शुरू करें।",
+    "antigravity.code_write_failed": "कोड लिखा नहीं जा सका: {detail}",
+    "antigravity.flush_failed": "flush: {detail}",
+    "antigravity.wait_error": "agy की प्रतीक्षा में त्रुटि: {detail}",
+    "antigravity.code_timeout": "agy के कोड संसाधित करते समय समय समाप्त। नया कोड लेकर फिर कोशिश करें।",
+    "antigravity.exit_failed": "agy साइन-इन असफल (निकास {code})। नए कोड के लिए साइन-इन फिर शुरू करें।",
+    "antigravity.no_wincred": "agy समाप्त हुआ पर WinCred सत्र नहीं है। रीफ़्रेश करें या फिर साइन इन करें।"
+  }
+}
